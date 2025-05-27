@@ -1,12 +1,12 @@
 <p>login works!</p>
 <div class="form-container">
-    <form (ngSubmit)="onSubmit(loginForm.value)" #loginForm="ngForm">
+    <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
       <label for="name_user">Username:</label>
-      <input id="name_user" type="text" name="name_user" ngModel required>
+      <input id="name_user" type="text" name="name_user" [(ngModel)]="formData.name_user" required>
       
       <label for="password">Password:</label>
-      <input id="password" type="password" name="password" ngModel required>
+      <input id="password" type="password" name="password" [(ngModel)]="formData.password" required>
       
       <button type="submit">Iniciar Sesión</button>
     </form>
-  </div>
+</div>
