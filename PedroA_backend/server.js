@@ -76,6 +76,39 @@ app.get("/articulos", (req, res) => {
     res.json(results);
   });
 });
+app.post("/articulos", (req, res) => {
+  const { titulo, subtitulo, resumen, url, imagen } = req.body;
+
+  if (!titulo || !resumen || !url) {
+    return res.json({ success: false, message: "Faltan campos obligatorios" });
+  }
+
+  const fecha = new Date();
+
+  db.query(
+    "INSERT INTO articles (titulo, subtitulo, resumen, url, imagen, fecha) VALUES (?, ?, ?, ?, ?, ?)",
+    [titulo, subtitulo, resumen, url, imagen, fecha],
+    (err, result) => {
+      if (err) {
+        console.error("❌ Error al insertar artículo:", err);
+        return res.json({ success: false, message: "Error al guardar artículo" });
+      }
+
+      const nuevoArticulo = {
+        id: result.insertId,
+        titulo,
+        subtitulo,
+        resumen,
+        url,
+        imagen,
+        fecha
+      };
+
+      res.json({ success: true, articulo: nuevoArticulo });
+    }
+  );
+});
+
 
 app.get("/libros", (req, res) => {
   console.log("📚 Se ha accedido a /libros");

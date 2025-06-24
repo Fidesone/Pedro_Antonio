@@ -5,6 +5,7 @@ import { RegisterComponent } from './register/register.component';
 import { ArticulosComponent } from './articulos/articulos.component';
 import { LibrosComponent } from './libros/libros.component';
 import { BiografiaComponent } from './biografia/biografia.component';
+import { NuevoArticuloComponent } from './nuevo-articulo/nuevo-articulo.component';
 
 export const routes: Routes = [
    { path: '', component: MainComponent },
@@ -12,5 +13,6 @@ export const routes: Routes = [
    { path: 'login', component: LoginComponent },
    { path: 'articulos', component: ArticulosComponent },
    { path: 'libros', component: LibrosComponent }, 
-   { path: 'biografia', component: BiografiaComponent }
+   { path: 'biografia', component: BiografiaComponent },
+   { path: 'nuevo-articulo', component: NuevoArticuloComponent }
 ];

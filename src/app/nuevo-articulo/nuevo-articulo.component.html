@@ -1,0 +1,15 @@
+<div class="zona-articulos">
+  <div class="contenedor-cabecera">
+    <h1 class="cabecera">Nuevo Artículo</h1>
+    <button class="enlace-navegacion" (click)="volver()">← Volver a artículos</button>
+  </div>
+
+  <div class="formulario-articulo">
+    <input type="text" placeholder="Título" [(ngModel)]="nuevoArticulo.titulo" />
+    <input type="text" placeholder="Periodico / Fecha publicacion" [(ngModel)]="nuevoArticulo.periodico" />
+    <input type="text" placeholder="Resumen" [(ngModel)]="nuevoArticulo.resumen" />
+    <input type="text" placeholder="Editorial" [(ngModel)]="nuevoArticulo.url" />
+    <input type="text" placeholder="Imagen (URL)" [(ngModel)]="nuevoArticulo.imagen" />
+    <button (click)="guardarArticulo()">Guardar</button>
+  </div>
+</div>
