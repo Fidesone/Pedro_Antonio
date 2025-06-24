@@ -33,14 +33,18 @@ constructor(private http: HttpClient, private router: Router) {}
         this.articulos = data;
       });
   }
-navigateToBooks(): void {
+  navigateToBooks(): void {
   this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
     this.router.navigate(['/libros']);
   });
-}
-irANuevoArticulo(): void {
+  }
+  irANuevoArticulo(): void {
   this.router.navigate(['/nuevo-articulo']);
-}
+  }
+  
+  navigateToBiography() {  
+  this.router.navigate(['/biografia']);
+  }
 
 
 
