@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
@@ -12,24 +12,43 @@ import { Router } from '@angular/router';
 })
 export class LibrosComponent implements OnInit {
   libros: any[] = [];
+  librosFiltrados: any[] = [];
+  categoriaSeleccionada: string = '';
 
-constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit(): void {
     this.http.get<any[]>('http://localhost:3000/libros').subscribe(
       (data) => {
         console.log('📚 Libros recibidos:', data);
         this.libros = data;
+        this.librosFiltrados = data;
       },
       (error) => {
         console.error('❌ Error al obtener libros:', error);
       }
     );
   }
-navigateToArticles(): void {
-  this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-    this.router.navigate(['/articulos']);
-  });
-}
 
+  filtrarLibros(categoria: string): void {
+    this.categoriaSeleccionada = categoria;
+    this.librosFiltrados = this.libros.filter(
+      (libro) => libro.categoria === categoria
+    );
+  }
+
+  verTodos(): void {
+    this.categoriaSeleccionada = '';
+    this.librosFiltrados = this.libros;
+  }
+
+  navigateToArticles(): void {
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['/articulos']);
+    });
+  }
+
+  navigateToBiography(): void {
+    this.router.navigate(['/biografia']);
+  }
 }
