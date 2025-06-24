@@ -28,12 +28,12 @@ export class RegisterComponent {
           alert('Registro completado.');
         } else {
           console.error('Respuesta inesperada:', response);
-          alert('Hubo un problema con el registro.');
+          alert('Hubo un problema con el registro2.');
         }
       },
       error => {
         console.error('Error en el registro:', error); // Detalle completo del error
-        alert('Hubo un problema con el registro.');
+        alert('Hubo un problema con el registro3');
       }
     );
   }

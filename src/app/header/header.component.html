@@ -1,7 +1,16 @@
 
 <p>header works!</p>
+<div *ngIf="name_user">
+  <p>👋 ¡Hola {{ name_user }}! Has iniciado sesión.</p>
+</div>
+
 <button (click)="navigateToLogin()">Iniciar Sesión</button>
 <button (click)="navigateToRegister()">Registro</button>
+<button (click)="navigateToArticles()">Artículos</button>
+
+
+
+
 
 
 

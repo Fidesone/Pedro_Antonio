@@ -1,10 +1,12 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+  styleUrl: './header.component.scss',
+  imports: [CommonModule]
 })
 export class HeaderComponent {
   name_user: string | null;
@@ -20,7 +22,9 @@ export class HeaderComponent {
     console.log('✅ Botón clicado, navegando a /login');
     this.router.navigate(['/register']);
   }
-
+  navigateToArticles() {
+    this.router.navigate(['/articulos']);
+}
 
   
   

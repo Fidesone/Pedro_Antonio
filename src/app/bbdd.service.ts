@@ -12,7 +12,7 @@ export class BBDD_service {
   constructor(private http: HttpClient) {}
 
   // Registrar un nuevo usuario
-  registerUser(data: { nombre: string; email: string; password: string }): Observable<any> {
+  registerUser(data: { name_user: string; email: string; password: string }): Observable<any> {
     console.log('Datos enviados desde el servicio al backend:', data);
     return this.http.post(`${this.baseUrl}/register`, data);
   }

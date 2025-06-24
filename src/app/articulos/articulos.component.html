@@ -1,0 +1,19 @@
+<div class="zona-articulos">
+<div class="contenedor-cabecera">
+  <h1 class="cabecera">Artículos</h1>
+</div>
+
+<div *ngIf="articulos.length > 0; else sinArticulos">
+  <div *ngFor="let articulo of articulos" class="articulo">
+    <img [src]="articulo.imagen" alt="imagen artículo" width="200" />
+    <h2>{{ articulo.titulo }}</h2>
+    <h4>{{ articulo.subtitulo }}</h4>
+    <p>{{ articulo.resumen }}</p>
+    <a [href]="articulo.url" target="_blank">Seguir leyendo</a>
+  </div>
+</div>
+
+<ng-template #sinArticulos>
+  <p>Cargando artículos...</p>
+</ng-template>
+</div>
