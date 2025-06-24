@@ -1,0 +1,20 @@
+<div class="zona-articulos">
+  <div class="contenedor-cabecera">
+    <h1 class="cabecera">Libros</h1>
+    <button class="enlace-navegacion" (click)="navigateToArticles()">Artículos</button>
+  </div>
+
+  <div *ngIf="libros.length > 0; else sinLibros">
+    <div *ngFor="let libro of libros" class="articulo">
+      <img [src]="libro.imagen" alt="Portada del libro" width="200" />
+      <h2>{{ libro.titulo }}</h2>
+      <h4>{{ libro.autor }}</h4>
+      <p>{{ libro.descripcion }}</p>
+      <a [href]="libro.enlace" target="_blank">Ver más</a>
+    </div>
+  </div>
+
+  <ng-template #sinLibros>
+    <p>Cargando libros...</p>
+  </ng-template>
+</div>

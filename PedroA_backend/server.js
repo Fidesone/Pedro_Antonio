@@ -77,6 +77,18 @@ app.get("/articulos", (req, res) => {
   });
 });
 
+app.get("/libros", (req, res) => {
+  console.log("📚 Se ha accedido a /libros");
+  db.query("SELECT * FROM books ORDER BY fecha DESC", (err, results) => {
+    if (err) {
+      console.error("❌ Error al obtener libros:", err);
+      return res.json({ success: false, message: "Error al recuperar libros" });
+    }
+    res.json(results);
+  });
+});
+
+
 
 // 🚀 **Iniciar servidor**
 app.listen(PORT, () => {

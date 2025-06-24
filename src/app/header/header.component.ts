@@ -22,10 +22,20 @@ export class HeaderComponent {
     console.log('✅ Botón clicado, navegando a /login');
     this.router.navigate(['/register']);
   }
-  navigateToArticles() {
+  navigateToArticles() {  
     this.router.navigate(['/articulos']);
-}
+  }
+    navigateToBooks() {  
+    this.router.navigate(['/libros']);
+  }
+    navigateToBiography() {  
+    this.router.navigate(['/biografia']);
+  }
 
-  
+  mostrarLogin = false;
+
+  toggleLogin() {
+  this.mostrarLogin = !this.mostrarLogin;
+}
   
 }

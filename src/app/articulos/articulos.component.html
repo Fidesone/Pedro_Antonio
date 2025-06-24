@@ -1,7 +1,9 @@
 <div class="zona-articulos">
 <div class="contenedor-cabecera">
   <h1 class="cabecera">Artículos</h1>
+  <button class="enlace-navegacion" (click)="navigateToBooks()">Libros</button>
 </div>
+
 
 <div *ngIf="articulos.length > 0; else sinArticulos">
   <div *ngFor="let articulo of articulos" class="articulo">

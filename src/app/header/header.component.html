@@ -1,19 +1,22 @@
+<header class="estilo-header">
+  <div class="top-derecha">
+    <button (click)="toggleLogin()">Iniciar Sesión</button>
+    <button (click)="navigateToRegister()">Registro</button>
+  </div>
 
-<p>header works!</p>
-<div *ngIf="name_user">
-  <p>👋 ¡Hola {{ name_user }}! Has iniciado sesión.</p>
-</div>
+  <p class="cabecera-header">header works!</p>
 
-<button (click)="navigateToLogin()">Iniciar Sesión</button>
-<button (click)="navigateToRegister()">Registro</button>
-<button (click)="navigateToArticles()">Artículos</button>
+  <div *ngIf="name_user" class="seccion-header">
+    <p>👋 ¡Hola {{ name_user }}! Has iniciado sesión.</p>
+  </div>
 
+  <div *ngIf="mostrarLogin" class="panel-login">
+    <button (click)="navigateToLogin()">Iniciar Sesión</button>
+  </div>
 
-
-
-
-
-
-
-
-
+  <div class="seccion-header">
+    <button (click)="navigateToArticles()">Artículos</button>
+    <button (click)="navigateToBooks()">Libros</button>
+    <button (click)="navigateToBiography()">Biografía</button>
+  </div>
+</header>
