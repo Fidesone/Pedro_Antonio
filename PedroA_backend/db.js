@@ -17,6 +17,7 @@ if (isProduction) {
     query: (text, params, callback) => {
       return pool.query(text, params, callback);
     },
+    engine: 'postgres', // 👈 Añadido aquí
   };
 
   console.log('🚀 Conectado a PostgreSQL (Neon)');
@@ -43,6 +44,7 @@ if (isProduction) {
     query: (text, params, callback) => {
       return connection.query(text, params, callback);
     },
+    engine: 'mysql', // 👈 Añadido aquí también
   };
 }
 
