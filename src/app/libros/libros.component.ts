@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { environment } from '../../environments/environments';
 
 @Component({
   selector: 'app-libros',
@@ -18,7 +19,7 @@ export class LibrosComponent implements OnInit {
   constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit(): void {
-    this.http.get<any[]>('http://localhost:3000/libros').subscribe(
+    this.http.get<any[]>(`${environment.apiUrl}/libros`).subscribe(
       (data) => {
         console.log('📚 Libros recibidos:', data);
         this.libros = data;

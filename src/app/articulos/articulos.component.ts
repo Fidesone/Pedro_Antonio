@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms'; 
+import { environment } from '../../environments/environments';
 
 
 @Component({
@@ -28,7 +29,7 @@ constructor(private http: HttpClient, private router: Router) {}
 
 
   ngOnInit(): void {
-    this.http.get<any[]>('http://localhost:3000/articulos')
+    this.http.get<any[]>(`${environment.apiUrl}/articulos`)
       .subscribe(data => {
         this.articulos = data;
       });
