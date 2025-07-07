@@ -1,5 +1,4 @@
-// environment.prod.ts
 export const environment = {
   production: true,
-  apiUrl: 'https://tu-backend.fly.dev'
+  apiUrl: 'https://pedro-antonio.onrender.com/' // ← cambia esto por tu URL real
 };
