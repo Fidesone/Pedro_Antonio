@@ -1,0 +1,53 @@
+.footer1 {
+  background: linear-gradient(135deg, #cde3f9, #f0f7ff);
+  padding: 20px 0;
+  text-align: center;
+  border-top: 3px solid #6fb1fc;
+  font-size: 1.6rem;
+}
+
+.footer1 a {
+  margin: 0 12px;
+  color: #2d7dd2;
+  transition: color 0.3s ease;
+}
+
+.footer1 a:hover {
+  color: #1b4f72;
+}
+
+/* Segunda parte del footer */
+.footer {
+  background-color: #f0f7ff;
+  padding: 20px 10px;
+  text-align: center;
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+  font-size: 0.95rem;
+  color: #2c3e50;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  border-top: 1px solid #d0e3f0;
+}
+
+.footer__link {
+  color: #2d7dd2;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.footer__link:hover {
+  color: #1b4f72;
+}
+
+.github {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  transition: color 0.3s ease;
+}
+
+.github:hover {
+  color: #000;
+}

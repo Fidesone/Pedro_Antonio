@@ -1,22 +1,19 @@
-<header class="estilo-header">
-  <div class="top-derecha">
-    <button (click)="toggleLogin()">Iniciar Sesión</button>
-    <button (click)="navigateToRegister()">Registro</button>
-  </div>
+<header class="contenedor-cabecera">
+<img src="assets/img/Logo_oficial.png" alt="Pedro Antonio Logo" class="logo-header" />
 
-  <p class="cabecera-header">header works!</p>
-
-  <div *ngIf="name_user" class="seccion-header">
-    <p>👋 ¡Hola {{ name_user }}! Has iniciado sesión.</p>
-  </div>
-
-  <div *ngIf="mostrarLogin" class="panel-login">
-    <button (click)="navigateToLogin()">Iniciar Sesión</button>
-  </div>
-
-  <div class="seccion-header">
-    <button (click)="navigateToArticles()">Artículos</button>
-    <button (click)="navigateToBooks()">Libros</button>
-    <button (click)="navigateToBiography()">Biografía</button>
+  <div class="accion-derecha">
+    <button class="enlace-navegacion" (click)="navigateToBiography()">Biografía</button>
+    <button class="enlace-navegacion" (click)="navigateToArticles()">Artículos</button>
+    <button class="enlace-navegacion" (click)="navigateToBooks()">Libros</button>
+    <button class="enlace-navegacion" (click)="toggleLogin()">Iniciar Sesión</button>
+    <!--<button class="enlace-navegacion" (click)="navigateToRegister()">Registro</button> -->
   </div>
 </header>
+
+<div *ngIf="name_user" class="mensaje-bienvenida">
+  👋 ¡Hola {{ name_user }}! Has iniciado sesión.
+</div>
+
+<div *ngIf="mostrarLogin" class="panel-login">
+  <button class="enlace-navegacion" (click)="navigateToLogin()">Iniciar Sesión</button>
+</div>

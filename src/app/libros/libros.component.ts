@@ -3,11 +3,12 @@ import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
+import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-libros',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FooterComponent],
   templateUrl: './libros.component.html',
   styleUrls: ['./libros.component.scss']
 })

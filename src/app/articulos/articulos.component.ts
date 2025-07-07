@@ -4,12 +4,13 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms'; 
 import { environment } from '../../environments/environment';
+import { FooterComponent } from '../footer/footer.component';
 
 
 @Component({
   selector: 'app-articulos',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, FooterComponent],
   templateUrl: './articulos.component.html',
   styleUrls: ['./articulos.component.scss'] 
 })
