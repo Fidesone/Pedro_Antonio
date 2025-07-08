@@ -1,11 +1,10 @@
-<p>nuevo-libro works!</p>
-<div class="zona-articulos">
+<div class="zona-libros">
   <div class="contenedor-cabecera">
     <h1 class="cabecera">Nuevo Libro</h1>
     <button class="enlace-navegacion" (click)="volver()">← Volver a libros</button>
   </div>
 
-  <div class="formulario-articulo">
+  <div class="formulario-libro">
     <input type="text" placeholder="Título" [(ngModel)]="nuevoLibro.titulo" />
     <input type="text" placeholder="Autor" [(ngModel)]="nuevoLibro.autor" />
     <input type="text" placeholder="Descripción" [(ngModel)]="nuevoLibro.descripcion" />
