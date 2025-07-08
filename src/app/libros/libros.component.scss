@@ -19,6 +19,8 @@
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06);
   position: relative;
   z-index: 1;
+  flex-wrap: wrap;
+  gap: 16px;
 }
 
 .contenedor-cabecera::after {
@@ -33,7 +35,19 @@
   opacity: 0.9;
 }
 
-/* Título dentro de la cabecera */
+/* Logo de la sección Libros */
+.logo-cabecera {
+  height: auto;
+  width: auto;
+  max-height: 80px;
+  max-width: 240px;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+  margin: 0;
+}
+
+/* Título (si se usa junto al logo) */
 .cabecera {
   font-size: 2.2em;
   font-weight: 700;
@@ -49,6 +63,8 @@
   gap: 12px;
   min-width: fit-content;
   white-space: nowrap;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
 .enlace-navegacion {
@@ -68,7 +84,7 @@
   color: white;
 }
 
-/* Botón "Añadir artículo" */
+/* Botón "Añadir libro" */
 .boton-anadir {
   background: linear-gradient(135deg, #5e7cce, #2361d4);
   color: white;
@@ -94,7 +110,7 @@
   transform: scale(0.98);
 }
 
-/* Tarjetas de artículo */
+/* Tarjetas de libro */
 .articulo {
   background: linear-gradient(to bottom right, #e0e4e9, #b5cedf);
   border-radius: 12px;
@@ -147,8 +163,7 @@
   color: #1b4f72;
 }
 
-// secciones de libros
-
+/* Categorías de libros */
 .categorias-libros {
   display: flex;
   justify-content: center;
@@ -181,18 +196,25 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
+/* Responsivo */
 @media (max-width: 768px) {
   .contenedor-cabecera {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 16px;
     padding: 20px;
+  }
+
+  .logo-cabecera {
+    max-height: 50px;
+    max-width: 160px;
+    margin-bottom: 10px;
   }
 
   .cabecera {
     font-size: 1.8em;
     width: 100%;
-    text-align: left;
+    text-align: center;
   }
 
   .accion-derecha {
@@ -206,12 +228,3 @@
     text-align: center;
   }
 }
-
-
-.logo-cabecera {
-  height: 48px;
-  max-width: 180px;
-  object-fit: contain;
-  margin: 0;
-}
-

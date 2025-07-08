@@ -19,6 +19,8 @@
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06);
   position: relative;
   z-index: 1;
+  flex-wrap: wrap;
+  gap: 16px;
 }
 
 .contenedor-cabecera::after {
@@ -33,7 +35,19 @@
   opacity: 0.9;
 }
 
-/* Título dentro de la cabecera */
+/* Logo de la sección Artículos */
+.logo-cabecera {
+  height: auto;
+  width: auto;
+  max-height: 80px;
+  max-width: 240px;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+  margin: 0;
+}
+
+/* Título (si se usa junto al logo) */
 .cabecera {
   font-size: 2.2em;
   font-weight: 700;
@@ -49,6 +63,8 @@
   gap: 12px;
   min-width: fit-content;
   white-space: nowrap;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
 .enlace-navegacion {
@@ -147,13 +163,7 @@
   color: #1b4f72;
 }
 
-.logo-cabecera {
-  height: 48px;
-  max-width: 180px;
-  object-fit: contain;
-  margin: 0;
-}
-
+/* Responsivo */
 @media (max-width: 768px) {
   .contenedor-cabecera {
     flex-direction: column;
@@ -163,9 +173,15 @@
   }
 
   .logo-cabecera {
-    height: 40px;
-    max-width: 140px;
+    max-height: 50px;
+    max-width: 160px;
     margin-bottom: 10px;
+  }
+
+  .cabecera {
+    font-size: 1.8em;
+    width: 100%;
+    text-align: center;
   }
 
   .accion-derecha {
