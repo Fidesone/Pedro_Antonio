@@ -169,3 +169,22 @@
   background-color: #3498db;
   color: #fff;
 }
+@media (max-width: 768px) {
+  .contenedor-cabecera {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 0 10px 15px;
+  }
+
+  .cabecera {
+    font-size: 2em;
+    width: 100%;
+    text-align: left;
+  }
+
+  .enlace-navegacion {
+    width: 100%;
+    text-align: center;
+  }
+}

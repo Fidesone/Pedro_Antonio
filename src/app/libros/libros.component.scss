@@ -180,3 +180,30 @@
   color: #ffffff;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
+
+@media (max-width: 768px) {
+  .contenedor-cabecera {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px;
+  }
+
+  .cabecera {
+    font-size: 1.8em;
+    width: 100%;
+    text-align: left;
+  }
+
+  .accion-derecha {
+    flex-direction: column;
+    width: 100%;
+    align-items: stretch;
+  }
+
+  .enlace-navegacion {
+    width: 100%;
+    text-align: center;
+  }
+}
+
