@@ -136,6 +136,7 @@ app.get("/libros", (req, res) => {
 // 📚 Crear libro
 app.post("/libros", (req, res) => {
   const { titulo, autor, descripcion, enlace, imagen, categoria } = req.body;
+  console.log("📥 Datos recibidos para nuevo libro:", req.body);
 
   if (!titulo || !autor || !descripcion || !enlace) {
     return res.json({ success: false, message: "Faltan campos obligatorios" });
@@ -154,7 +155,7 @@ app.post("/libros", (req, res) => {
         console.error("❌ Error al guardar libro:", err);
         return res.json({ success: false, message: "Error al guardar libro" });
       }
-
+      console.log("✅ Libro guardado correctamente:", result);
       res.json({ success: true, message: "Libro guardado correctamente" });
     }
   );
