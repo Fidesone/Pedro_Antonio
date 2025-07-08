@@ -138,10 +138,10 @@ app.get("/libros", (req, res) => {
 });
 // 📚 Crear libro
 app.post("/libros", (req, res) => {
-  const { titulo, autor, descripcion, enlace, imagen, categoria } = req.body;
+  const { titulo, autor, descripcion, url, imagen, categoria } = req.body;
   console.log("📥 Datos recibidos para nuevo libro:", req.body);
 
-  if (!titulo || !autor || !descripcion || !enlace) {
+  if (!titulo || !autor || !descripcion || !url) {
     return res.json({ success: false, message: "Faltan campos obligatorios" });
   }
 
@@ -151,8 +151,8 @@ app.post("/libros", (req, res) => {
     : '?, ?, ?, ?, ?, ?, ?';
 
   db.query(
-    `INSERT INTO books (titulo, autor, descripcion, enlace, imagen, categoria, fecha) VALUES (${placeholders})`,
-    [titulo, autor, descripcion, enlace, imagen, categoria, fecha],
+    `INSERT INTO books (titulo, autor, descripcion, url, imagen, categoria, fecha) VALUES (${placeholders})`,
+    [titulo, autor, descripcion, url, imagen, categoria, fecha],
     (err, result) => {
       if (err) {
         console.error("❌ Error al guardar libro:", err);
