@@ -12,15 +12,7 @@ const dbEngine = db.engine || 'mysql'; // Detectar motor
 
 app.use(express.json());
 
-const corsOptions = {
-  origin: 'https://pedroagonzalezmoreno.com',
-  methods: ['GET', 'POST', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true
-};
-
-app.use(cors(corsOptions));
-app.options('*', cors(corsOptions));
+app.use(cors());
 
 
 
