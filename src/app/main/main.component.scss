@@ -142,20 +142,3 @@
     text-align: center;
   }
 }
-
-.logo-cabecera {
-  height: 60px;
-  max-width: 200px;
-  object-fit: contain;
-  display: block;
-  margin: 0 auto 20px auto;
-}
-
-/* Responsivo en móviles */
-@media (max-width: 768px) {
-  .logo-cabecera {
-    height: 40px;
-    max-width: 140px;
-    margin-bottom: 16px;
-  }
-}
