@@ -10,8 +10,26 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const dbEngine = db.engine || 'mysql'; // Detectar motor
 
-app.use(cors());
 app.use(express.json());
+
+const allowedOrigins = ['https://pedroagonzalezmoreno.com'];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('No permitido por CORS'));
+    }
+  },
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
+}));
+
+// Habilita preflight para todas las rutas
+app.options('*', cors());
+
 
 // 🔐 Registro de usuarios
 app.post("/register", async (req, res) => {
