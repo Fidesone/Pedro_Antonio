@@ -53,4 +53,8 @@ export class LibrosComponent implements OnInit {
   navigateToBiography(): void {
     this.router.navigate(['/biografia']);
   }
+  irANuevoLibro(): void {
+  this.router.navigate(['/nuevo-libro']);
+}
+
 }

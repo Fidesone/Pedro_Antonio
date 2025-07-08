@@ -1,0 +1,17 @@
+<p>nuevo-libro works!</p>
+<div class="zona-articulos">
+  <div class="contenedor-cabecera">
+    <h1 class="cabecera">Nuevo Libro</h1>
+    <button class="enlace-navegacion" (click)="volver()">← Volver a libros</button>
+  </div>
+
+  <div class="formulario-articulo">
+    <input type="text" placeholder="Título" [(ngModel)]="nuevoLibro.titulo" />
+    <input type="text" placeholder="Autor" [(ngModel)]="nuevoLibro.autor" />
+    <input type="text" placeholder="Descripción" [(ngModel)]="nuevoLibro.descripcion" />
+    <input type="text" placeholder="Categoría" [(ngModel)]="nuevoLibro.categoria" />
+    <input type="text" placeholder="Enlace" [(ngModel)]="nuevoLibro.enlace" />
+    <input type="text" placeholder="Imagen (URL)" [(ngModel)]="nuevoLibro.imagen" />
+    <button (click)="guardarLibro()">Guardar</button>
+  </div>
+</div>

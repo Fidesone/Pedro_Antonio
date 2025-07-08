@@ -133,6 +133,32 @@ app.get("/libros", (req, res) => {
     res.json(data);
   });
 });
+// 📚 Crear libro
+app.post("/libros", (req, res) => {
+  const { titulo, autor, descripcion, enlace, imagen, categoria } = req.body;
+
+  if (!titulo || !autor || !descripcion || !enlace) {
+    return res.json({ success: false, message: "Faltan campos obligatorios" });
+  }
+
+  const fecha = new Date();
+  const placeholders = dbEngine === 'postgres'
+    ? '$1, $2, $3, $4, $5, $6, $7'
+    : '?, ?, ?, ?, ?, ?, ?';
+
+  db.query(
+    `INSERT INTO books (titulo, autor, descripcion, enlace, imagen, categoria, fecha) VALUES (${placeholders})`,
+    [titulo, autor, descripcion, enlace, imagen, categoria, fecha],
+    (err, result) => {
+      if (err) {
+        console.error("❌ Error al guardar libro:", err);
+        return res.json({ success: false, message: "Error al guardar libro" });
+      }
+
+      res.json({ success: true, message: "Libro guardado correctamente" });
+    }
+  );
+});
 
 // 🚀 Arrancar servidor
 app.listen(PORT, () => {
