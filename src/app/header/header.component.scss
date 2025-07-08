@@ -11,6 +11,7 @@
   position: relative;
   z-index: 1;
   flex-wrap: wrap;
+  gap: 16px;
 }
 
 .contenedor-cabecera::after {
@@ -25,14 +26,15 @@
   opacity: 0.9;
 }
 
-/* Título del header */
-.cabecera {
-  font-size: 2.2em;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  color: #4367df;
+/* Logo */
+.logo-cabecera {
+  height: 60px;
+  max-width: 200px;
+  min-width: 120px;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
   margin: 0;
-  flex: 1;
 }
 
 /* Contenedor de botones de navegación */
@@ -79,19 +81,29 @@
   margin-top: 10px;
 }
 
-.logo-cabecera {
-  height: 60px;
-  max-width: 200px;
-  object-fit: contain;
-  display: block;
-  margin: 0 auto 20px auto;
-}
-
 /* Responsivo en móviles */
 @media (max-width: 768px) {
+  .contenedor-cabecera {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 20px;
+  }
+
   .logo-cabecera {
     height: 40px;
     max-width: 140px;
-    margin-bottom: 16px;
+    margin-bottom: 10px;
+  }
+
+  .accion-derecha {
+    flex-direction: column;
+    width: 100%;
+    align-items: stretch;
+  }
+
+  .enlace-navegacion {
+    width: 100%;
+    text-align: center;
   }
 }
