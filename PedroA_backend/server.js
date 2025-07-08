@@ -15,10 +15,12 @@ app.use(express.json());
 const allowedOrigins = ['https://pedroagonzalezmoreno.com'];
 
 app.use(cors({
-  origin: function (origin, callback) {
+  origin: (origin, callback) => {
+    // Permitir peticiones sin origen (como Postman) o desde el dominio permitido
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
+      console.warn(`❌ CORS bloqueado para origen: ${origin}`);
       callback(new Error('No permitido por CORS'));
     }
   },
@@ -27,7 +29,6 @@ app.use(cors({
   credentials: true
 }));
 
-// Habilita preflight para todas las rutas
 app.options('*', cors());
 
 
