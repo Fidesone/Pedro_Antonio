@@ -12,24 +12,16 @@ const dbEngine = db.engine || 'mysql'; // Detectar motor
 
 app.use(express.json());
 
-const allowedOrigins = ['https://pedroagonzalezmoreno.com'];
-
-app.use(cors({
-  origin: (origin, callback) => {
-    // Permitir peticiones sin origen (como Postman) o desde el dominio permitido
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      console.warn(`❌ CORS bloqueado para origen: ${origin}`);
-      callback(new Error('No permitido por CORS'));
-    }
-  },
+const corsOptions = {
+  origin: 'https://pedroagonzalezmoreno.com',
   methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
-}));
+};
 
-app.options('*', cors());
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
+
 
 
 // 🔐 Registro de usuarios
