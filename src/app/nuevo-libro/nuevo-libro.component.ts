@@ -17,7 +17,7 @@ export class NuevoLibroComponent {
     titulo: '',
     autor: '',
     descripcion: '',
-    enlace: '',
+    url: '',
     imagen: '',
     categoria: ''
   };
@@ -25,8 +25,8 @@ export class NuevoLibroComponent {
   constructor(private http: HttpClient, private router: Router) {}
 
   guardarLibro(): void {
-    const { titulo, autor, descripcion, enlace } = this.nuevoLibro;
-    if (!titulo.trim() || !autor.trim() || !descripcion.trim() || !enlace.trim()) {
+    const { titulo, autor, descripcion, url } = this.nuevoLibro;
+    if (!titulo.trim() || !autor.trim() || !descripcion.trim() || !url.trim()) {
       alert('Por favor, completa los campos obligatorios');
       return;
     }
