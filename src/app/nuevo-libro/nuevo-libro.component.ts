@@ -21,6 +21,7 @@ export class NuevoLibroComponent {
     imagen: '',
     categoria: ''
   };
+  categorias: string[] = ['poesía', 'novela', 'ensayo', 'viajes'];
 
   constructor(private http: HttpClient, private router: Router) {}
 
