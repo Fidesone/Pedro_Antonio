@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-nuevo-articulo',
@@ -14,7 +15,7 @@ import { CommonModule } from '@angular/common';
 export class NuevoArticuloComponent {
   nuevoArticulo = {
     titulo: '',
-    periodico: '',
+    subtitulo: '',
     resumen: '',
     url: '',
     imagen: ''
@@ -25,9 +26,9 @@ export class NuevoArticuloComponent {
   guardarArticulo(): void {
     if (!this.nuevoArticulo.titulo.trim()) return;
 
-    this.http.post<any>('http://localhost:3000/articulos', this.nuevoArticulo).subscribe(
+    this.http.post<any>(`${environment.apiUrl}/articulos`, this.nuevoArticulo).subscribe(
       (res) => {
-        this.router.navigate(['/articulos']); // redirige a la lista tras guardar
+        this.router.navigate(['/articulos']);
       },
       (error) => {
         console.error('❌ Error al guardar artículo:', error);
