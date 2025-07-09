@@ -17,7 +17,11 @@ export class LibrosComponent implements OnInit {
   librosFiltrados: any[] = [];
   categoriaSeleccionada: string = '';
 
-  constructor(private http: HttpClient, private router: Router) {}
+    name_user: string | null = null; // ✅ Declaración correcta
+constructor(private http: HttpClient, private router: Router) {
+
+  this.name_user = localStorage.getItem('name_user'); 
+}
 
   ngOnInit(): void {
     this.http.get<any[]>(`${environment.apiUrl}/libros`).subscribe(

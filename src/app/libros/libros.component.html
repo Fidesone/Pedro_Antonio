@@ -16,7 +16,7 @@
     <button class="categoria-boton" [ngClass]="{ activo: categoriaSeleccionada === 'viajes' }" (click)="filtrarLibros('viajes')">Viajes</button>
   </div>
 
-  <button class="boton-anadir" (click)="irANuevoLibro()">Añadir libro</button>
+  <button class="boton-anadir" *ngIf="name_user === 'pedro'" (click)="irANuevoLibro()">Añadir libro</button>
 
   <!-- Lista de libros filtrados -->
   <div *ngIf="librosFiltrados.length > 0; else sinLibros">

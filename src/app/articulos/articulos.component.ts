@@ -15,6 +15,7 @@ import { FooterComponent } from '../footer/footer.component';
   styleUrls: ['./articulos.component.scss'] 
 })
 export class ArticulosComponent implements OnInit {
+
   articulos: any[] = [];
 libros: any;
 mostrarFormulario = false;
@@ -26,7 +27,11 @@ mostrarFormulario = false;
     imagen: ''
   };
 
-constructor(private http: HttpClient, private router: Router) {}
+  name_user: string | null = null; // ✅ Declaración correcta
+constructor(private http: HttpClient, private router: Router) {
+
+  this.name_user = localStorage.getItem('name_user'); 
+}
 
 
   ngOnInit(): void {
