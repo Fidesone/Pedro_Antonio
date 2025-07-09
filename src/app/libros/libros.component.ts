@@ -60,5 +60,10 @@ constructor(private http: HttpClient, private router: Router) {
   irANuevoLibro(): void {
   this.router.navigate(['/nuevo-libro']);
 }
-
+getUrl(enlace: string): string {
+  if (!enlace.startsWith('http')) {
+    return `https://${enlace}`;
+  }
+  return enlace;
+}
 }
