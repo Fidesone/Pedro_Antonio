@@ -11,9 +11,9 @@ export class BBDD_service {
 
   constructor(private http: HttpClient) {}
 
-// registerUser(data: { name_user: string; email: string; password: string }): Observable<any> {
-//    return this.http.post(`${this.baseUrl}/register`, data);
-//  }
+ registerUser(data: { name_user: string; email: string; password: string }): Observable<any> {
+    return this.http.post(`${this.baseUrl}/register`, data);
+  }
 
   loginUser(data: any): Observable<any> {
     return this.http.post(`${this.baseUrl}/login`, data);
