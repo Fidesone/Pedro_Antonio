@@ -21,7 +21,7 @@
   <!-- Lista de libros filtrados -->
   <div *ngIf="librosFiltrados.length > 0; else sinLibros">
     <div *ngFor="let libro of librosFiltrados" class="articulo">
-      <img [src]="libro.imagen" alt="Portada del libro" width="200" />
+      <img [src]="libro.imagen" alt="Portada del libro" class="imagen-libro"/>
       <h2>{{ libro.titulo }}</h2>
       <h4>{{ libro.autor }}</h4>
       <p>{{ libro.descripcion }}</p>

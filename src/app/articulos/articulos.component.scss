@@ -163,6 +163,13 @@
   color: #1b4f72;
 }
 
+.imagen-articulo {
+  max-width: 200px;
+  max-height: 200px;
+  object-fit: cover; // ✅ esto asegura que no se distorsione
+  border-radius: 6px; // 🎨 opcional para que se vea más elegante
+}
+
 /* Responsivo */
 @media (max-width: 768px) {
   .contenedor-cabecera {
