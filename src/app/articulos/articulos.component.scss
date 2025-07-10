@@ -34,17 +34,20 @@
   background: linear-gradient(to right, #6fb1fc, #a698f3);
   opacity: 0.9;
 }
-
+.logo-wrapper {
+  height: 500px; /* o el tamaño visual que quieres para el logo */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+  flex-shrink: 0;
+}
 /* Logo de la sección Artículos */
 .logo-cabecera {
-  height: auto;
+  height: 100%;
   width: auto;
-  max-height: 80px; /* o prueba 100px si quieres más presencia */
-  max-width: 500px;
   object-fit: contain;
   display: block;
-  flex-shrink: 0;
-  margin: 0;
 }
 
 /* Título (si se usa junto al logo) */
