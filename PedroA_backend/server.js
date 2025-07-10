@@ -76,7 +76,7 @@ app.post("/login", async (req, res) => {
 
 // 📰 Obtener artículos
 app.get("/articulos", (req, res) => {
-  db.query("SELECT * FROM articles ORDER BY fecha DESC", [], (err, results) => {
+  db.query("SELECT * FROM articles ORDER BY fecha ASC", [], (err, results) => {
     if (err) {
       console.error("❌ Error en la consulta a articles:", err); // 👈 AÑADE
       return res.json({ success: false, message: "Error al recuperar artículos" });
