@@ -164,8 +164,8 @@
 }
 
 .imagen-articulo {
-  max-width: 200px;
-  max-height: 200px;
+  max-width: 70%;
+  max-height: 70%;
   object-fit: cover; // ✅ esto asegura que no se distorsione
   border-radius: 6px; // 🎨 opcional para que se vea más elegante
 }
