@@ -12,8 +12,8 @@
 
   <div *ngIf="articulos.length > 0; else sinArticulos">
     <div *ngFor="let articulo of articulos" class="articulo">
-      <img [src]="articulo.imagen" alt="imagen artículo"  class="imagen-articulo" />
       <h2>{{ articulo.titulo }}</h2>
+      <img [src]="articulo.imagen" alt="imagen artículo"  class="imagen-articulo" />
       <h4>{{ articulo.subtitulo }}</h4>
       <p>{{ articulo.resumen }}</p>
       <a [href]="articulo.url" target="_blank">Seguir leyendo</a>
