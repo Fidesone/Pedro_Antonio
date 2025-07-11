@@ -138,6 +138,7 @@ app.get("/libros", (req, res) => {
 });
 // 📚 Crear libro
 app.post("/libros", (req, res) => {
+  console.log("📥 Nuevo libro recibido para guardar:");
   const {
     titulo,
     autor,
