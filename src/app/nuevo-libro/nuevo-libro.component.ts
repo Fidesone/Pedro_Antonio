@@ -29,8 +29,8 @@ nuevoLibro = {
   constructor(private http: HttpClient, private router: Router) {}
 
   guardarLibro(): void {
-const { titulo, autor, descripcion, url, anoPublicacion, editorial } = this.nuevoLibro;
-  if (!titulo.trim() || !autor.trim() || !descripcion.trim() || !url.trim() || !anoPublicacion.trim() || !editorial.trim()) {
+const { titulo, autor, descripcion, anoPublicacion, editorial } = this.nuevoLibro;
+  if (!titulo.trim() || !autor.trim() || !descripcion.trim() || !anoPublicacion.trim() || !editorial.trim()) {
     alert('Por favor, completa todos los campos obligatorios');
     return;
   }
