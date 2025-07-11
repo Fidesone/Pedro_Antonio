@@ -253,12 +253,8 @@
   border-radius: 10px;
   border: 3px solid #6c5ce7;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
 }
 
-.libro-tarjeta:hover .imagen-libro {
-  transform: scale(1.05);
-}
 .info-libro h2 {
   font-size: 1.6em;
   margin-bottom: 6px;
