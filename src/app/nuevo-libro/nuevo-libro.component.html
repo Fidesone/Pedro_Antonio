@@ -7,7 +7,7 @@
   <div class="formulario-libro">
     <input type="text" placeholder="Título" [(ngModel)]="nuevoLibro.titulo" />
     <input type="text" placeholder="Autor" [(ngModel)]="nuevoLibro.autor" />
-    <input type="text" placeholder="Descripción" [(ngModel)]="nuevoLibro.descripcion" />
+    <input type="text" placeholder="Descripción del libro" [(ngModel)]="nuevoLibro.descripcion" />
     <select [(ngModel)]="nuevoLibro.categoria">
         <option value="" disabled selected>Selecciona una categoría</option>
         <option *ngFor="let cat of categorias" [value]="cat">{{ cat | titlecase }}</option>
@@ -15,7 +15,7 @@
     <input type="text" placeholder="Año de publicación" [(ngModel)]="nuevoLibro.anoPublicacion" />
     <input type="text" placeholder="Editorial" [(ngModel)]="nuevoLibro.editorial" />
     <input type="text" placeholder="Premio (opcional)" [(ngModel)]="nuevoLibro.premio" />
-    <input type="text" placeholder="Imagen" [(ngModel)]="nuevoLibro.imagen" />
+    <input type="text" placeholder="Imagen (URL)" [(ngModel)]="nuevoLibro.imagen" />
     <button (click)="guardarLibro()">Guardar</button>
   </div>
 </div>
