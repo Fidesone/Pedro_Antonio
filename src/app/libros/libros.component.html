@@ -19,7 +19,7 @@
   <button class="boton-anadir" *ngIf="name_user === 'pedro'" (click)="irANuevoLibro()">Añadir libro</button>
 
 <div class="libro-tarjeta" *ngFor="let libro of librosFiltrados">
-  <img [src]="libro.imagen" alt="Portada del libro" class="imagen-libro"/>
+  <img [src]="libro.imagen" alt="Portada del libro" class="imagen-libro" style="max-width:180px"/>
   <div class="info-libro">
     <h2>{{ libro.titulo }}</h2>
     <p class="resumen">{{ libro.descripcion }}</p>
