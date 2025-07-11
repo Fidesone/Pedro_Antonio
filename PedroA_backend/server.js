@@ -138,31 +138,60 @@ app.get("/libros", (req, res) => {
 });
 // 📚 Crear libro
 app.post("/libros", (req, res) => {
-  const { titulo, autor, descripcion, url, imagen, categoria } = req.body;
+  const {
+    titulo,
+    autor,
+    descripcion,
+    url,
+    imagen,
+    categoria,
+    anoPublicacion,
+    editorial,
+    premio
+  } = req.body;
+
   console.log("📥 Datos recibidos para nuevo libro:", req.body);
 
-  if (!titulo || !autor || !descripcion || !url) {
+  if (!titulo || !autor || !descripcion || !url || !anoPublicacion || !editorial) {
     return res.json({ success: false, message: "Faltan campos obligatorios" });
   }
 
   const fecha = new Date();
+
   const placeholders = dbEngine === 'postgres'
-    ? '$1, $2, $3, $4, $5, $6, $7'
-    : '?, ?, ?, ?, ?, ?, ?';
+    ? '$1, $2, $3, $4, $5, $6, $7, $8, $9, $10'
+    : '?, ?, ?, ?, ?, ?, ?, ?, ?, ?';
+
+  const values = [
+    titulo,
+    autor,
+    descripcion,
+    url,
+    imagen,
+    categoria,
+    fecha,
+    anoPublicacion,
+    editorial,
+    premio
+  ];
 
   db.query(
-    `INSERT INTO books (titulo, autor, descripcion, url, imagen, categoria, fecha) VALUES (${placeholders})`,
-    [titulo, autor, descripcion, url, imagen, categoria, fecha],
+    `INSERT INTO books (
+      titulo, autor, descripcion, url, imagen, categoria, fecha, anoPublicacion, editorial, premio
+    ) VALUES (${placeholders})`,
+    values,
     (err, result) => {
       if (err) {
         console.error("❌ Error al guardar libro:", err);
         return res.json({ success: false, message: "Error al guardar libro" });
       }
+
       console.log("✅ Libro guardado correctamente:", result);
       res.json({ success: true, message: "Libro guardado correctamente" });
     }
   );
 });
+
 
 // 🚀 Arrancar servidor
 app.listen(PORT, () => {

@@ -13,24 +13,27 @@ import { environment } from '../../environments/environment';
   styleUrls: ['./nuevo-libro.component.scss']
 })
 export class NuevoLibroComponent {
-  nuevoLibro = {
-    titulo: '',
-    autor: '',
-    descripcion: '',
-    url: '',
-    imagen: '',
-    categoria: ''
-  };
+nuevoLibro = {
+  titulo: '',
+  autor: '',
+  descripcion: '',
+  imagen: '',
+  categoria: '',
+  anoPublicacion: '',
+  editorial: '',
+  premio: ''
+};
+
   categorias: string[] = ['poesía', 'novela', 'ensayo', 'viajes'];
 
   constructor(private http: HttpClient, private router: Router) {}
 
   guardarLibro(): void {
-    const { titulo, autor, descripcion, url } = this.nuevoLibro;
-    if (!titulo.trim() || !autor.trim() || !descripcion.trim() || !url.trim()) {
-      alert('Por favor, completa los campos obligatorios');
-      return;
-    }
+const { titulo, autor, descripcion, url, anoPublicacion, editorial } = this.nuevoLibro;
+  if (!titulo.trim() || !autor.trim() || !descripcion.trim() || !url.trim() || !anoPublicacion.trim() || !editorial.trim()) {
+    alert('Por favor, completa todos los campos obligatorios');
+    return;
+  }
 
     this.http.post<any>(`${environment.apiUrl}/libros`, this.nuevoLibro).subscribe(
       (res) => {

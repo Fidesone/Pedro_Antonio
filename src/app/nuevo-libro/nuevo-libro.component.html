@@ -12,8 +12,9 @@
         <option value="" disabled selected>Selecciona una categoría</option>
         <option *ngFor="let cat of categorias" [value]="cat">{{ cat | titlecase }}</option>
     </select>
-
-    <input type="text" placeholder="URL" [(ngModel)]="nuevoLibro.url" />
+    <input type="text" placeholder="Año de publicación" [(ngModel)]="nuevoLibro.anoPublicacion" />
+    <input type="text" placeholder="Editorial" [(ngModel)]="nuevoLibro.editorial" />
+    <input type="text" placeholder="Premio (opcional)" [(ngModel)]="nuevoLibro.premio" />
     <input type="text" placeholder="Imagen" [(ngModel)]="nuevoLibro.imagen" />
     <button (click)="guardarLibro()">Guardar</button>
   </div>
