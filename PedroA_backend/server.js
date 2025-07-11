@@ -143,7 +143,6 @@ app.post("/libros", (req, res) => {
     titulo,
     autor,
     descripcion,
-    url,
     imagen,
     categoria,
     anoPublicacion,
@@ -153,21 +152,20 @@ app.post("/libros", (req, res) => {
 
   console.log("📥 Datos recibidos para nuevo libro:", req.body);
 
-  if (!titulo || !autor || !descripcion || !url || !anoPublicacion || !editorial) {
+  if (!titulo || !autor || !descripcion || !anoPublicacion || !editorial) {
     return res.json({ success: false, message: "Faltan campos obligatorios" });
   }
 
   const fecha = new Date();
 
   const placeholders = dbEngine === 'postgres'
-    ? '$1, $2, $3, $4, $5, $6, $7, $8, $9, $10'
-    : '?, ?, ?, ?, ?, ?, ?, ?, ?, ?';
+    ? '$1, $2, $3, $4, $5, $6, $7, $8, $9'
+    : '?, ?, ?, ?, ?, ?, ?, ?, ?';
 
   const values = [
     titulo,
     autor,
     descripcion,
-    url,
     imagen,
     categoria,
     fecha,
@@ -178,7 +176,7 @@ app.post("/libros", (req, res) => {
 
   db.query(
     `INSERT INTO books (
-      titulo, autor, descripcion, url, imagen, categoria, fecha, anoPublicacion, editorial, premio
+      titulo, autor, descripcion, imagen, categoria, fecha, anoPublicacion, editorial, premio
     ) VALUES (${placeholders})`,
     values,
     (err, result) => {
