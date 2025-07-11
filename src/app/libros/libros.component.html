@@ -18,16 +18,20 @@
 
   <button class="boton-anadir" *ngIf="name_user === 'pedro'" (click)="irANuevoLibro()">Añadir libro</button>
 
-  <!-- Lista de libros filtrados -->
-  <div *ngIf="librosFiltrados.length > 0; else sinLibros">
-    <div *ngFor="let libro of librosFiltrados" class="articulo">
-      <img [src]="libro.imagen" alt="Portada del libro" class="imagen-libro"/>
-      <h2>{{ libro.titulo }}</h2>
-      <h4>{{ libro.autor }}</h4>
-      <p>{{ libro.descripcion }}</p>
-      <a [href]="getUrl(libro.url)" target="_blank" rel="noopener noreferrer">Ver más</a>
+<div class="libro-tarjeta" *ngFor="let libro of librosFiltrados">
+  <img [src]="libro.imagen" alt="Portada del libro" class="imagen-libro"/>
+  <div class="info-libro">
+    <h2>{{ libro.titulo }}</h2>
+    <p class="resumen">{{ libro.descripcion }}</p>
+    <div class="detalles-libro">
+      <p><strong>Año:</strong> {{ libro.anoPublicacion }}</p>
+      <p><strong>Editorial:</strong> {{ libro.editorial }}</p>
+      <p><strong>Premio:</strong> {{ libro.premio }}</p>
     </div>
+    <a [href]="getUrl(libro.url)" target="_blank" rel="noopener noreferrer">Ver más</a>
   </div>
+</div>
+
 
   <ng-template #sinLibros>
     <p>No hay libros disponibles para esta categoría.</p>

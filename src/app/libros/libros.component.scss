@@ -196,13 +196,48 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.imagen-libro {
-  max-width: 200px;
-  max-height: 200px;
-  object-fit: cover; // ✅ esto asegura que no se distorsione
-  border-radius: 6px; // 🎨 opcional para que se vea más elegante
-  border: 3px dashed #00b894;
+.libro-tarjeta {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  background: linear-gradient(to bottom right, #e0e4e9, #b5cedf);
+  border-radius: 12px;
+  padding: 24px;
+  margin: 20px auto;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+  max-width: 800px;
+  flex-wrap: wrap;
 }
+
+.info-libro {
+  flex: 1;
+}
+
+.resumen {
+  margin: 12px 0;
+  line-height: 1.5;
+  color: #4d5d6c;
+}
+
+.detalles-libro p {
+  margin: 6px 0;
+  font-size: 0.95em;
+  color: #5d6d7e;
+}
+
+.info-libro a {
+  display: inline-block;
+  margin-top: 14px;
+  color: #2d7dd2;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.info-libro a:hover {
+  color: #1b4f72;
+}
+
 
 /* Responsivo */
 @media (max-width: 768px) {
@@ -236,3 +271,24 @@
     text-align: center;
   }
 }
+@media (max-width: 600px) {
+  .libro-tarjeta {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .imagen-libro {
+    width: 100%;
+    height: auto;
+  }
+
+  .info-libro {
+    width: 100%;
+  }
+
+  .detalles-libro {
+    text-align: left;
+  }
+}
+
