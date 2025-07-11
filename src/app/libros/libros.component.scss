@@ -279,10 +279,10 @@
   }
 
 .imagen-libro {
-  flex-shrink: 0;
-  width: 180px;          /* puedes ajustar el ancho */
-  height: 240px;         /* y alto según lo que te funcione mejor */
-  object-fit: cover;     /* ✅ evita distorsión y recorta si sobra */
+  width: 180px;         /* ancho fijo */
+  height: auto;         /* se adapta sin deformar */
+  max-height: 240px;    /* no crece más de esto */
+  object-fit: contain;  /* muestra todo sin recortar */
   border-radius: 8px;
   border: 3px dashed #00b894;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
@@ -294,6 +294,13 @@
 
   .detalles-libro {
     text-align: left;
+  }
+}
+
+@media (max-width: 600px) {
+  .imagen-libro {
+    width: 100%;
+    height: auto;
   }
 }
 
