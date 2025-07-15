@@ -1,20 +1,26 @@
 import { mergeApplicationConfig, ApplicationConfig } from '@angular/core';
 import { provideServerRendering } from '@angular/platform-server';
-import { provideServerRoutesConfig } from '@angular/ssr';
 import { appConfig } from './app.config';
-import { serverRoutes } from './app.routes.server';
 
 const serverConfig: ApplicationConfig = {
   providers: [
-    provideServerRendering(),
-    provideServerRoutesConfig(serverRoutes)
+    provideServerRendering()
   ]
 };
 
 export const config = mergeApplicationConfig(appConfig, serverConfig);
 
-export function getServerSideRenderingConfig() {
-  return {
-    routes: serverRoutes
-  };
+// ✅ Esta función indica exactamente qué rutas prerenderizar
+export function getPrerenderRoutes() {
+  return [
+    '/',
+    '/register',
+    '/login',
+    '/articulos',
+    '/libros',
+    '/biografia',
+    '/nuevo-articulo',
+    '/nuevo-libro'
+    // ⛔️ No incluyas rutas con ':id'
+  ];
 }
