@@ -24,7 +24,7 @@ nuevoLibro = {
   premio: ''
 };
 
-  categorias: string[] = ['poesía', 'novela', 'ensayo', 'viajes'];
+  categorias: string[] = ['poesía', 'novela', 'ensayo', 'viajes', 'memoria'];
 
   constructor(private http: HttpClient, private router: Router) {}
 

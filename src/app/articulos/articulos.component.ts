@@ -53,7 +53,9 @@ constructor(private http: HttpClient, private router: Router) {
   this.router.navigate(['/biografia']);
   }
 
-
+irAWeb() {
+  window.open('https://ejemplo.com', '_blank');
+}
 
 
 }

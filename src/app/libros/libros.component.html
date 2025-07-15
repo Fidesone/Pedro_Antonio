@@ -4,6 +4,7 @@
     <div class="accion-derecha">
       <button class="enlace-navegacion" (click)="navigateToArticles()">Artículos</button>
       <button class="enlace-navegacion" (click)="navigateToBiography()">Biografía</button>
+      <button (click)="irAWeb()">Trabajos de crítica literaria</button>
     </div>
   </div>
 
@@ -14,9 +15,10 @@
     <button class="categoria-boton" [ngClass]="{ activo: categoriaSeleccionada === 'novela' }" (click)="filtrarLibros('novela')">Novela</button>
     <button class="categoria-boton" [ngClass]="{ activo: categoriaSeleccionada === 'ensayo' }" (click)="filtrarLibros('ensayo')">Ensayo</button>
     <button class="categoria-boton" [ngClass]="{ activo: categoriaSeleccionada === 'viajes' }" (click)="filtrarLibros('viajes')">Viajes</button>
+    <button class="categoria-boton" [ngClass]="{ activo: categoriaSeleccionada === 'memorias' }" (click)="filtrarLibros('memorias')">Memorias</button>
   </div>
 
-  <button class="boton-anadir" *ngIf="name_user === 'pedro'" (click)="irANuevoLibro()">Añadir libro</button>
+<button class="boton-anadir" *ngIf="name_user === 'pedro'" (click)="irANuevoLibro()">Añadir libro</button>
 
 <div class="libro-tarjeta" *ngFor="let libro of librosFiltrados">
   <img [src]="libro.imagen" alt="Portada del libro" class="imagen-libro" style="max-width:180px"/>
@@ -27,8 +29,11 @@
     <div class="detalles-libro">
       <p><strong>Año de publicación:</strong> {{ libro.anopublicacion }}</p>
       <p><strong>Editorial:</strong> {{ libro.editorial }}</p>
-      <p><strong>Premio:</strong> {{ libro.premio }}</p>
+      <p *ngIf="libro.premio"><strong>Premio:</strong> {{ libro.premio }}</p>
     </div>
+    <button *ngIf="name_user === 'pedro'" class="boton-modificar" (click)="irAModificarLibro(libro.id)">
+      Modificar libro
+    </button>
   </div>
 </div>
 

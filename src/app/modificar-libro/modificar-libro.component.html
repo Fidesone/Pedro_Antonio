@@ -1,0 +1,30 @@
+<div class="zona-libros">
+  <div class="contenedor-cabecera">
+    <h1 class="cabecera">Modificar Libro</h1>
+    <button class="enlace-navegacion" (click)="volver()">← Volver a libros</button>
+  </div>
+
+  <form class="formulario-libro" (ngSubmit)="guardarCambios()">
+    <label>Título:</label>
+    <input [(ngModel)]="libro.titulo" name="titulo" required />
+
+    <label>Autor:</label>
+    <input [(ngModel)]="libro.autor" name="autor" />
+
+    <label>Descripción:</label>
+    <textarea [(ngModel)]="libro.descripcion" name="descripcion"></textarea>
+
+    <label>Categoría:</label>
+    <input [(ngModel)]="libro.categoria" name="categoria" />
+
+    <label>Año de Publicación:</label>
+    <input [(ngModel)]="libro.anopublicacion" name="anopublicacion" type="number" />
+
+    <label>Editorial:</label>
+    <input [(ngModel)]="libro.editorial" name="editorial" />
+
+    <input *ngIf="libro.premio" [(ngModel)]="libro.premio" name="premio" />
+
+    <button type="submit">Guardar Cambios</button>
+  </form>
+</div>

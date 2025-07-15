@@ -191,6 +191,56 @@ app.post("/libros", (req, res) => {
   );
 });
 
+// 📚 Modificar libro por ID
+app.put("/libros/:id", (req, res) => {
+  const {
+    titulo,
+    autor,
+    descripcion,
+    imagen,
+    categoria,
+    anoPublicacion,
+    editorial,
+    premio
+  } = req.body;
+
+  const idLibro = req.params.id;
+
+  if (!idLibro) {
+    return res.status(400).json({ success: false, message: "ID del libro no proporcionado" });
+  }
+
+  const placeholders = dbEngine === 'postgres'
+    ? 'titulo = $1, autor = $2, descripcion = $3, imagen = $4, categoria = $5, anoPublicacion = $6, editorial = $7, premio = $8'
+    : 'titulo = ?, autor = ?, descripcion = ?, imagen = ?, categoria = ?, anoPublicacion = ?, editorial = ?, premio = ?';
+
+  const values = [
+    titulo,
+    autor,
+    descripcion,
+    imagen,
+    categoria,
+    anoPublicacion,
+    editorial,
+    premio,
+    idLibro
+  ];
+console.log("📤 ID libro:", idLibro);
+console.log("📦 Datos recibidos:", req.body);
+
+  const updateQuery = `UPDATE books SET ${placeholders} WHERE id = ${dbEngine === 'postgres' ? '$9' : '?'}`;
+
+  db.query(updateQuery, values, (err, result) => {
+    if (err) {
+      console.error("❌ Error al modificar libro:", err);
+      return res.status(500).json({ success: false, message: "Error al modificar libro" });
+    }
+
+    res.json({ success: true, message: "Libro modificado correctamente" });
+  });
+});
+
+
 
 // 🚀 Arrancar servidor
 app.listen(PORT, () => {

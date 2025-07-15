@@ -4,11 +4,13 @@
     <div class = "accion-derecha">
     <button class="enlace-navegacion" (click)="navigateToBooks()">Libros</button>
     <button class="enlace-navegacion" (click)="navigateToBiography()">Biografia</button>
+    <button class="enlace-navegacion" (click)="irAWeb()">Trabajos de crítica literaria</button>
     </div>
   </div>
 
   <!-- Botón que redirige a la nueva vista -->
   <button class="boton-anadir" *ngIf="name_user === 'pedro'" (click)="irANuevoArticulo()">Añadir artículo</button>
+ <!-- <button class="boton-anadir" *ngIf="name_user === 'pedro'" (click)="irAModificarArticulo()">Modificar articulo</button>-->
 
   <div *ngIf="articulos.length > 0; else sinArticulos">
   <div *ngFor="let articulo of articulos" class="articulo-tarjeta">

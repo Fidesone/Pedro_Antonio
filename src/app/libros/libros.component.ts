@@ -59,8 +59,16 @@ constructor(private http: HttpClient, private router: Router) {
   }
   irANuevoLibro(): void {
   this.router.navigate(['/nuevo-libro']);
+  }
+    
+  irAModificarLibro(id: number): void {
+  this.router.navigate(['/modificar-libro', id]);
 }
-getUrl(enlace: string | undefined): string {
+irAWeb() {
+  window.open('https://ejemplo.com', '_blank');
+}
+
+  getUrl(enlace: string | undefined): string {
   if (!enlace) return ''; // Evita el error si el enlace está vacío
 
   if (!enlace.startsWith('http')) {

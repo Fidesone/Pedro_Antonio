@@ -38,4 +38,7 @@ export class HeaderComponent {
   this.mostrarLogin = !this.mostrarLogin;
 }
   
+irAWeb() {
+  window.open('https://ejemplo.com', '_blank');
+}
 }

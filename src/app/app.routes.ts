@@ -7,6 +7,7 @@ import { LibrosComponent } from './libros/libros.component';
 import { BiografiaComponent } from './biografia/biografia.component';
 import { NuevoArticuloComponent } from './nuevo-articulo/nuevo-articulo.component';
 import { NuevoLibroComponent } from './nuevo-libro/nuevo-libro.component';
+import { ModificarLibroComponent } from './modificar-libro/modificar-libro.component';
 
 export const routes: Routes = [
    { path: '', component: MainComponent },
@@ -16,5 +17,6 @@ export const routes: Routes = [
    { path: 'libros', component: LibrosComponent }, 
    { path: 'biografia', component: BiografiaComponent },
    { path: 'nuevo-articulo', component: NuevoArticuloComponent },
-   { path: 'nuevo-libro', component: NuevoLibroComponent }
+   { path: 'nuevo-libro', component: NuevoLibroComponent },
+   { path: 'modificar-libro/:id', component: ModificarLibroComponent }
 ];

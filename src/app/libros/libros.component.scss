@@ -282,6 +282,22 @@
   opacity: 0.8;
 }
 
+.boton-modificar {
+  margin-top: 10px;
+  background-color: #4a90e2;
+  color: white;
+  padding: 8px 16px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right; // 👈 esto lo mueve a la derecha
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #357abd;
+  }
+}
 
 /* Responsivo */
 @media (max-width: 768px) {
