@@ -1,13 +1,16 @@
 import { mergeApplicationConfig, ApplicationConfig } from '@angular/core';
-import { provideServerRendering, provideServerRouting } from '@angular/platform-server';
+import { provideServerRendering } from '@angular/platform-server';
 import { appConfig } from './app.config';
 
-// ⚠️ Esta función le dice al compilador que NO genere rutas dinámicas
-export function getPrerenderParams(route: string): string[] {
-  return []; // nada para prerenderizar
-}
+const serverConfig: ApplicationConfig = {
+  providers: [
+    provideServerRendering()
+  ]
+};
 
-// ✅ Rutas válidas para prerender
+export const config = mergeApplicationConfig(appConfig, serverConfig);
+
+// ✅ Esta función indica qué rutas estáticas prerenderizar
 export function getPrerenderRoutes() {
   return [
     '/',
@@ -18,17 +21,6 @@ export function getPrerenderRoutes() {
     '/biografia',
     '/nuevo-articulo',
     '/nuevo-libro'
+    // ⛔️ No incluyas rutas con ':id'
   ];
 }
-
-const serverConfig: ApplicationConfig = {
-  providers: [
-    provideServerRendering(),
-    provideServerRouting({
-      getPrerenderRoutes,
-      getPrerenderParams
-    })
-  ]
-};
-
-export const config = mergeApplicationConfig(appConfig, serverConfig);
