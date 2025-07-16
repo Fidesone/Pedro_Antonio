@@ -1,4 +1,16 @@
+export function getPrerenderRoutes(): string[] {
+  return [
+    '/',
+    '/register',
+    '/login',
+    '/articulos',
+    '/libros',
+    '/biografia',
+    '/nuevo-articulo',
+    '/nuevo-libro'
+  ];
+}
+
 export function getPrerenderParams(route: string): string[] {
-  // no prerenderizamos rutas con parámetros como ':id'
   return [];
 }

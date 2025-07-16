@@ -25,17 +25,15 @@
             ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-          "assets": [
-             "src/assets",
-             "src/favicon.ico"
-          ],
-
+            "assets": [
+              "src/assets",
+              "src/favicon.ico"
+            ],
             "styles": [
               "src/styles.scss"
             ],
             "scripts": [],
             "server": "src/main.server.ts",
-            "outputMode": "server",
             "ssr": {
               "entry": "src/server.ts"
             }
@@ -82,6 +80,45 @@
           },
           "defaultConfiguration": "development"
         },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/pedro-antonio-server",
+            "main": "src/main.server.ts",
+            "tsConfig": "tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "prerender": {
+          "builder": "@angular-devkit/build-angular:prerender",
+          "options": {
+            "browserTarget": "Pedro_Antonio:build:production",
+            "serverTarget": "Pedro_Antonio:server:production",
+            "routes": [
+              "/",
+              "/register",
+              "/login",
+              "/articulos",
+              "/libros",
+              "/biografia",
+              "/nuevo-articulo",
+              "/nuevo-libro"
+            ]
+          },
+          "configurations": {
+            "production": {}
+          }
+        },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n"
         },
@@ -94,11 +131,10 @@
             ],
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
-          "assets": [
-            "src/assets",
-            "src/favicon.ico"
-          ],
-
+            "assets": [
+              "src/assets",
+              "src/favicon.ico"
+            ],
             "styles": [
               "src/styles.scss"
             ],
