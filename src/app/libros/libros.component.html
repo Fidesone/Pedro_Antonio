@@ -4,7 +4,6 @@
     <div class="accion-derecha">
       <button class="enlace-navegacion" (click)="navigateToArticles()">Artículos</button>
       <button class="enlace-navegacion" (click)="navigateToBiography()">Biografía</button>
-      <button class="enlace-navegacion" (click)="irAWeb()">Trabajos de crítica literaria</button>
     </div>
   </div>
 
@@ -16,6 +15,7 @@
     <button class="categoria-boton" [ngClass]="{ activo: categoriaSeleccionada === 'ensayo' }" (click)="filtrarLibros('ensayo')">Ensayo</button>
     <button class="categoria-boton" [ngClass]="{ activo: categoriaSeleccionada === 'viajes' }" (click)="filtrarLibros('viajes')">Viajes</button>
     <button class="categoria-boton" [ngClass]="{ activo: categoriaSeleccionada === 'memorias' }" (click)="filtrarLibros('memorias')">Memorias</button>
+    <button class="categoria-boton" [ngClass]="{ activo: categoriaSeleccionada === 'otras publicaciones' }" (click)="filtrarLibros('otras publicaciones')">Otras publicaciones</button>
   </div>
 
 <button class="boton-anadir" *ngIf="name_user === 'pedro'" (click)="irANuevoLibro()">Añadir libro</button>
