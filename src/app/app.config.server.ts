@@ -1,17 +1,15 @@
+// app.config.server.ts
+
 import { mergeApplicationConfig, ApplicationConfig } from '@angular/core';
 import { provideServerRendering } from '@angular/platform-server';
 import { appConfig } from './app.config';
 
-const serverConfig: ApplicationConfig = {
-  providers: [
-    provideServerRendering()
-  ]
-};
+export const config = mergeApplicationConfig(appConfig, {
+  providers: [provideServerRendering()]
+});
 
-export const config = mergeApplicationConfig(appConfig, serverConfig);
-
-// ✅ Esta función indica qué rutas estáticas prerenderizar
-export function getPrerenderRoutes() {
+// ✅ Lista de rutas estáticas que quieres prerenderizar
+export function getPrerenderRoutes(): string[] {
   return [
     '/',
     '/register',
@@ -21,6 +19,10 @@ export function getPrerenderRoutes() {
     '/biografia',
     '/nuevo-articulo',
     '/nuevo-libro'
-    // ⛔️ No incluyas rutas con ':id'
   ];
+}
+
+// 🚨 ESTA FUNCIÓN ES LO QUE SILENCIA EL ERROR
+export function getPrerenderParams(route: string): string[] {
+  return []; // no prerenderizamos rutas con :id
 }
