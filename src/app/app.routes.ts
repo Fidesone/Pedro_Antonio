@@ -18,11 +18,10 @@ export const routes: Routes = [
    { path: 'biografia', component: BiografiaComponent },
    { path: 'nuevo-articulo', component: NuevoArticuloComponent },
    { path: 'nuevo-libro', component: NuevoLibroComponent },
-     {
-    path: 'modificar-libro/:id',
-    component: ModificarLibroComponent,
-    data: {
-      renderMode: 'no-prerender' // ⛔️ evita error durante build
-    }
+  {
+     path: 'modificar-libro',
+     loadChildren: () =>
+      import('./modificar-libro/modificar-libro.module').then(m => m.ModificarLibroModule)
   }
+
 ];
