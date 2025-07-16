@@ -1,6 +1,0 @@
-[build]
-  command = "ng run Pedro_Antonio:prerender"
-  publish = "dist/browser"
-
-[build.environment]
-  PRERENDER = "true"
