@@ -1,10 +1,9 @@
-// src/app/server-routes.ts
 import { ServerRoute, RenderMode } from '@angular/ssr';
 
 export const serverRoutes: ServerRoute[] = [
   {
-    path: 'modificar-libro/:id',
-    renderMode: RenderMode.Server // 👈 SSR, no prerender
+    path: 'modificar-libro',
+    renderMode: RenderMode.Server // ← ya no tiene :id
   },
   {
     path: '**',

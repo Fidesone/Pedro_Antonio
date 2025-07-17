@@ -66,9 +66,10 @@ constructor(
   this.router.navigate(['/nuevo-libro']);
   }
     
-  irAModificarLibro(id: number): void {
-  this.router.navigate(['/modificar-libro', id]);
+irAModificarLibro(id: number): void {
+  this.router.navigate(['/modificar-libro'], { queryParams: { id } });
 }
+
 irAWeb() {
   window.open('https://ejemplo.com', '_blank');
 }
