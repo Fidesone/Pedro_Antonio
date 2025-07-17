@@ -83,4 +83,16 @@ irAWeb() {
   }
   return enlace;
 }
+
+ordenAscendente = true;
+
+ordenarPorAno(): void {
+  this.librosFiltrados.sort((a, b) => {
+    const añoA = a.anopublicacion ?? 0;
+    const añoB = b.anopublicacion ?? 0;
+    return this.ordenAscendente ? añoA - añoB : añoB - añoA;
+  });
+  this.ordenAscendente = !this.ordenAscendente;
+}
+
 }
