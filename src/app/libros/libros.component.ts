@@ -44,9 +44,10 @@ constructor(
   filtrarLibros(categoria: string): void {
     this.categoriaSeleccionada = categoria;
     this.librosFiltrados = this.libros.filter(
-      (libro) => libro.categoria === categoria
+      libro => libro.categoria?.toLowerCase() === categoria.toLowerCase()
     );
   }
+
 
   verTodos(): void {
     this.categoriaSeleccionada = '';
