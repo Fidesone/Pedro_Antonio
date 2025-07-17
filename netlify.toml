@@ -1,7 +1,5 @@
 [build]
-  command = "ng run Pedro_Antonio:prerender"
-  publish = "dist/browser"
+  command = "ng build --configuration production"
 
 [build.environment]
-  PRERENDER = "true"
   NODE_VERSION = "20"

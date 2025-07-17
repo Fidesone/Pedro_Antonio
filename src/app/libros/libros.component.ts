@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
 import { FooterComponent } from '../footer/footer.component';
@@ -18,9 +18,14 @@ export class LibrosComponent implements OnInit {
   categoriaSeleccionada: string = '';
 
     name_user: string | null = null; // ✅ Declaración correcta
-constructor(private http: HttpClient, private router: Router) {
-
-  this.name_user = localStorage.getItem('name_user'); 
+constructor(
+  private http: HttpClient,
+  private router: Router,
+  @Inject(PLATFORM_ID) private platformId: Object
+) {
+  if (isPlatformBrowser(this.platformId)) {
+    this.name_user = localStorage.getItem('name_user');
+  }
 }
 
   ngOnInit(): void {

@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms'; 
 import { environment } from '../../environments/environment';
 import { FooterComponent } from '../footer/footer.component';
+import { Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 
 @Component({
@@ -28,9 +30,14 @@ mostrarFormulario = false;
   };
 
   name_user: string | null = null; // ✅ Declaración correcta
-constructor(private http: HttpClient, private router: Router) {
-
-  this.name_user = localStorage.getItem('name_user'); 
+constructor(
+  private http: HttpClient,
+  private router: Router,
+  @Inject(PLATFORM_ID) private platformId: Object
+) {
+  if (isPlatformBrowser(this.platformId)) {
+    this.name_user = localStorage.getItem('name_user');
+  }
 }
 
 
