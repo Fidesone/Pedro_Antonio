@@ -23,6 +23,9 @@
     <label>Editorial:</label>
     <input [(ngModel)]="libro.editorial" name="editorial" />
 
+    <label>Imagen (URL):</label>
+    <input [(ngModel)]="libro.imagen" name="imagen" />
+
     <input *ngIf="libro.premio" [(ngModel)]="libro.premio" name="premio" />
 
     <button type="submit">Guardar Cambios</button>
