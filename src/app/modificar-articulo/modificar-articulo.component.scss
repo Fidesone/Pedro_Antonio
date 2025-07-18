@@ -80,6 +80,33 @@
   border-radius: 2px;
 }
 
+.contenedor-cabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px 15px;
+  margin-bottom: 20px;
+  position: relative;
+  background-color: transparent;
+  box-shadow: 0 6px 10px -8px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+.enlace-navegacion {
+  font-size: 1em;
+  color: #3498db;
+  background-color: transparent;
+  border: 2px solid #3498db;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.enlace-navegacion:hover {
+  background-color: #3498db;
+  color: #fff;
+}
 @keyframes fadeIn {
   from {
     opacity: 0;
