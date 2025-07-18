@@ -22,6 +22,11 @@ export const routes: Routes = [
      path: 'modificar-libro',
      loadChildren: () =>
       import('./modificar-libro/modificar-libro.module').then(m => m.ModificarLibroModule)
-    }
+    },
+    {
+    path: 'modificar-articulo',
+    loadChildren: () =>
+      import('./modificar-articulo/modificar-articulo.module').then(m => m.ModificarArticuloModule)
+  }
 
 ];

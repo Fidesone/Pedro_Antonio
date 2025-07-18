@@ -1,0 +1,22 @@
+<div class="zona-articulos">
+  <h2 class="cabecera">Modificar artículo</h2>
+
+  <form class="formulario-articulo" (ngSubmit)="guardarCambios()">
+    <label for="titulo">Título:</label>
+    <input type="text" id="titulo" name="titulo" [(ngModel)]="articulo.titulo" />
+
+    <label for="subtitulo">Subtítulo:</label>
+    <input type="text" id="subtitulo" name="subtitulo" [(ngModel)]="articulo.subtitulo" />
+
+    <label for="resumen">Resumen:</label>
+    <textarea id="resumen" name="resumen" [(ngModel)]="articulo.resumen"></textarea>
+
+    <label for="url">URL del artículo:</label>
+    <input type="text" id="url" name="url" [(ngModel)]="articulo.url" />
+
+    <label for="imagen">Imagen (URL):</label>
+    <input type="text" id="imagen" name="imagen" [(ngModel)]="articulo.imagen" />
+
+    <button type="submit">Guardar cambios</button>
+  </form>
+</div>

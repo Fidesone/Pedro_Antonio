@@ -125,6 +125,36 @@ app.post("/articulos", (req, res) => {
     }
   );
 });
+// 📝 Modificar artículo por ID
+app.put("/articulos/:id", (req, res) => {
+  const { titulo, subtitulo, resumen, url, imagen } = req.body;
+  const idArticulo = req.params.id;
+
+  if (!idArticulo) {
+    return res.status(400).json({ success: false, message: "ID del artículo no proporcionado" });
+  }
+
+  const placeholders = dbEngine === 'postgres'
+    ? 'titulo = $1, subtitulo = $2, resumen = $3, url = $4, imagen = $5'
+    : 'titulo = ?, subtitulo = ?, resumen = ?, url = ?, imagen = ?';
+
+  const values = [titulo, subtitulo, resumen, url, imagen, idArticulo];
+
+  const updateQuery = `UPDATE articles SET ${placeholders} WHERE id = ${dbEngine === 'postgres' ? '$6' : '?'}`;
+
+  console.log("📤 ID artículo:", idArticulo);
+  console.log("📦 Datos recibidos:", req.body);
+
+  db.query(updateQuery, values, (err, result) => {
+    if (err) {
+      console.error("❌ Error al modificar artículo:", err);
+      return res.status(500).json({ success: false, message: "Error al modificar artículo" });
+    }
+
+    res.json({ success: true, message: "Artículo modificado correctamente" });
+  });
+});
+
 
 // 📚 Obtener libros
 app.get("/libros", (req, res) => {

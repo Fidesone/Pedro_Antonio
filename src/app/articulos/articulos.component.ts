@@ -59,7 +59,9 @@ constructor(
   navigateToBiography() {  
   this.router.navigate(['/biografia']);
   }
-
+  irAModificarArticulo(id: number): void {
+    this.router.navigate(['/modificar-articulo'], { queryParams: { id } });
+  }
 irAWeb() {
   window.open('https://ejemplo.com', '_blank');
 }
