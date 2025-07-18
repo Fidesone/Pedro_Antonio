@@ -12,14 +12,16 @@
  <!-- <button class="boton-anadir" *ngIf="name_user === 'pedro'" (click)="irAModificarArticulo()">Modificar articulo</button>-->
 
   <div *ngIf="articulos.length > 0; else sinArticulos">
-  <div *ngFor="let articulo of articulos" class="articulo-tarjeta">
+<div *ngFor="let articulo of articulos" class="articulo-tarjeta">
+  
+  <div class="info-articulo">
+    <h2>{{ articulo.titulo }}</h2>
     <img [src]="articulo.imagen" alt="imagen artículo" class="imagen-articulo" />
-    <div class="info-articulo">
-      <h2>{{ articulo.titulo }}</h2>
-      <h4>{{ articulo.subtitulo }}</h4>
-      <p class="contenido-articulo">{{ articulo.resumen }}</p>
-      <a [href]="articulo.url" target="_blank">Seguir leyendo</a>
-    </div>
+    <h4>{{ articulo.subtitulo }}</h4>
+    <p class="contenido-articulo">{{ articulo.resumen }}</p>
+    <a [href]="articulo.url" target="_blank">Seguir leyendo</a>
+
+  </div>
 </div>
 
   </div>
