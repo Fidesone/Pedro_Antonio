@@ -353,6 +353,56 @@
     text-align: center;
   }
 }
+
+.extra-publicaciones {
+  display: flex;
+  flex-direction: column; /* 👈 Los elementos hijos se apilan verticalmente */
+  align-items: center;     /* 👈 Centra los hijos horizontalmente */
+  gap: 30px;               /* 👈 Espacio entre los bloques */
+  margin-top: 40px;
+  width: 100%;
+}
+
+.contenido-estatico {
+  background: linear-gradient(135deg, #dbe7fa, #f2f5ff);
+  border-radius: 14px;
+  padding: 28px;
+  max-width: 840px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  border: 1px solid #dfe6e9;
+  color: #2c3e50;
+  font-size: 1rem;
+  line-height: 1.6;
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+  text-align: center;
+  width: 100%;
+}
+
+.linea-divisoria {
+  border: none;
+  height: 2px;
+  background: linear-gradient(to right, #ccc, #666, #ccc);
+  margin: 1em auto 2em;
+  width: 80%;
+}
+
+
+
+
+
+
+.tarjeta-extra h3 {
+  font-size: 1.5em;
+  color: #2d3436;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.tarjeta-extra p {
+  color: #4d5d6c;
+  font-size: 1.1em;
+}
+
 @media (max-width: 600px) {
   .libro-tarjeta {
     flex-direction: column;

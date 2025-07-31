@@ -40,6 +40,18 @@
     </button>
   </div>
 </div>
+        <hr class="linea-divisoria" />
+    <!-- 🎯 Apartado adicional solo para "otras publicaciones" -->
+    <div *ngIf="categoriaSeleccionada === 'otras publicaciones'" class="extra-publicaciones">
+
+      <div class="contenido-estatico">
+
+        <h3>OTROS TRABAJOS DE CRÍTICA LITERARIA</h3>
+        <p>Además de numerosas reseñas, Pedro A. González Moreno es autor de diversos trabajos de crítica literaria publicados en libros colectivos y revistas especializadas. Una detallada lista de ellos puede consultarse en el siguiente enlace de la Universidad de la Rioja.</p>
+        <a [attr.href]="'https://dialnet.unirioja.es/servlet/autor?codigo=286009'" target="_blank">Perfil de Pedro A. González Moreno</a>
+
+      </div>
+    </div>
 </div>
 
   <ng-template #sinLibros>
