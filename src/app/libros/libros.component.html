@@ -9,7 +9,7 @@
 
   <!-- Categorías centradas debajo del header -->
   <div class="categorias-libros">
-    <button class="categoria-boton" [ngClass]="{ activo: categoriaSeleccionada === '' }" (click)="verTodos()">Todos</button>
+   <!--  <button class="categoria-boton" [ngClass]="{ activo: categoriaSeleccionada === '' }" (click)="verTodos()">Todos</button> -->
     <button class="categoria-boton" [ngClass]="{ activo: categoriaSeleccionada === 'poesía' }" (click)="filtrarLibros('poesía')">Poesía</button>
     <button class="categoria-boton" [ngClass]="{ activo: categoriaSeleccionada === 'novela' }" (click)="filtrarLibros('novela')">Novela</button>
     <button class="categoria-boton" [ngClass]="{ activo: categoriaSeleccionada === 'ensayo' }" (click)="filtrarLibros('ensayo')">Ensayo</button>
