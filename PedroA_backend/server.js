@@ -48,31 +48,52 @@ app.post("/register", async (req, res) => {
 app.post("/login", async (req, res) => {
   const { name_user, password } = req.body;
 
+  console.log("📥 Datos recibidos en login:");
+  console.log("🧑 name_user:", `'${name_user}'`);
+  console.log("🔑 password:", `'${password}'`);
+
   if (!name_user || !password)
     return res.status(400).send("Usuario y contraseña obligatorios");
 
-  const placeholder = dbEngine === 'postgres' ? '$1' : '?';
+  const query = dbEngine === 'postgres'
+    ? 'SELECT * FROM users WHERE name_user = $1'
+    : 'SELECT * FROM users WHERE name_user = ?';
 
-  db.query(
-    `SELECT * FROM users WHERE name_user = ${placeholder}`,
-    [name_user],
-    async (err, results) => {
-      const user = dbEngine === 'postgres' ? results?.rows?.[0] : results?.[0];
-      if (err || !user) return res.status(401).send("Usuario o contraseña incorrectos");
+  db.query(query, [name_user], async (err, results) => {
+    const user = dbEngine === 'postgres' ? results?.rows?.[0] : results?.[0];
 
-      const isMatch = await bcrypt.compare(password, user.password);
-      if (!isMatch) return res.status(401).send("Contraseña incorrecta");
-
-      const token = jwt.sign(
-        { id: user.id, name_user: user.name_user },
-        process.env.JWT_SECRET || "secret_key",
-        { expiresIn: "1h" }
-      );
-
-      res.json({ mensaje: "Inicio de sesión exitoso", token });
+    if (err) {
+      console.error("❌ Error al consultar usuario:", err);
+      return res.status(500).send("Error interno");
     }
-  );
+
+    console.log("📦 Usuario encontrado en BD:", user);
+
+    if (!user) {
+      console.log("⚠️ Usuario no encontrado");
+      return res.status(401).send("Usuario o contraseña incorrectos");
+    }
+
+    console.log("🔐 Contraseña en BD:", `'${user.password}'`);
+    const isMatch = await bcrypt.compare(password.trim(), user.password.trim());
+    console.log("🔎 Resultado comparación bcrypt:", isMatch);
+
+    if (!isMatch) {
+      console.log("🚫 Contraseña no coincide");
+      return res.status(401).send("Contraseña incorrecta");
+    }
+
+    const token = jwt.sign(
+      { id: user.id, name_user: user.name_user },
+      process.env.JWT_SECRET || "secret_key",
+      { expiresIn: "1h" }
+    );
+
+    console.log("✅ Login exitoso, token generado");
+    res.json({ mensaje: "Inicio de sesión exitoso", token });
+  });
 });
+
 
 // 📰 Obtener artículos
 app.get("/articulos", (req, res) => {

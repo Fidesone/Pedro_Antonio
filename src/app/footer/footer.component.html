@@ -1,8 +1,9 @@
-<div class='footer1'>
-        
-    <a  href="http://www.facebook.com/sharer.php?u=https://fidesone.github.io/website/index.html" ><i class="fab fa-facebook-square"></i> </a>
-    <a  href="https://twitter.com/intent/tweet?url=https://fidesone.github.io/website/index.html" ><i class="fab fa-twitter-square"></i></a>
-    <a  href="https://api.whatsapp.com/send?text=https://fidesone.github.io/website/index.html"> <i class="fab fa-whatsapp-square"></i> </a>
+<div class="footer1">
+  <img src="assets/email_img.jpg" />
+  <div class="contacto-container" (click)="copiarCorreo()">
+    <p class="contacto-texto">Contacto</p>
+    <span class="correo" *ngIf="mostrarCorreo">pagonzalezmor&#64;hotmail.com</span>
+  </div>
 </div>
 <div class="footer">
         <a class="footer__link" href="https://www.abc.es/espana/castilla-la-mancha/toledo/centenario-quijote/abci-pedro-gonzalez-poeta-cafe-gijon-201710031333_noticia.html">Pedro A. González, poeta en el Café Gijón</a>
