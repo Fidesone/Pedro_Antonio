@@ -66,6 +66,9 @@ constructor(
   irANuevoLibro(): void {
   this.router.navigate(['/nuevo-libro']);
   }
+  navigatetoContacto(): void {
+    this.router.navigate(['/contacto']);
+  }
     
 irAModificarLibro(id: number): void {
   this.router.navigate(['/modificar-libro'], { queryParams: { id } });

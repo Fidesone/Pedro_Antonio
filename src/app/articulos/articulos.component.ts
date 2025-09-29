@@ -59,6 +59,9 @@ constructor(
   navigateToBiography() {  
   this.router.navigate(['/biografia']);
   }
+  navigatetoContacto(){  
+  this.router.navigate(['/contacto']);
+  }
   irAModificarArticulo(id: number): void {
     this.router.navigate(['/modificar-articulo'], { queryParams: { id } });
   }

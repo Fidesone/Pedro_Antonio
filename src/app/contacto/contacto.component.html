@@ -1,0 +1,26 @@
+<section class="tarjeta-contacto">
+  <div class="col izquierda">
+    <h2>Contáctame</h2>
+    <p>¿Tienes dudas o un proyecto? Escríbeme.</p>
+    <div class="info-contacto">
+      <p><strong>Email:</strong> pedroagonzalemoreno&#64;hotmail.com</p>
+      <p><strong>Teléfono:</strong> 123 456 789</p>
+    </div>
+    <div class="redes-sociales">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+  </div>
+
+  <div class="col derecha">
+    <h2>Formulario de contacto</h2>
+    <form class="formulario" (ngSubmit)="enviarFormulario()">
+      <input type="text" placeholder="Nombre" [(ngModel)]="contacto.nombre" name="nombre" required>
+      <input type="email" placeholder="Correo electrónico" [(ngModel)]="contacto.correo" name="correo" required>
+      <input type="text" placeholder="Asunto" [(ngModel)]="contacto.asunto" name="asunto">
+      <textarea placeholder="Mensaje" [(ngModel)]="contacto.mensaje" name="mensaje" required></textarea>
+      <button type="submit">Enviar mensaje</button>
+    </form>
+  </div>
+</section>

@@ -40,6 +40,9 @@ export class HeaderComponent {
     navigateToBiography() {  
     this.router.navigate(['/biografia']);
   }
+  navigatetoContacto() {  
+    this.router.navigate(['/contacto']);
+  }
 
   mostrarLogin = false;
 
