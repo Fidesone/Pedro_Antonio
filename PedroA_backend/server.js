@@ -303,7 +303,8 @@ app.post("/contacto", async (req, res) => {
   if (!nombre || !correo || !mensaje) {
     return res.status(400).json({ success: false, message: "Faltan campos obligatorios" });
   }
-
+  // 🔑 Log para verificar API Key en producción
+  console.log("🔑 API Key usada:", process.env.RESEND_API_KEY);
   try {
     const { data, error } = await resend.emails.send({
       from: 'Pedro Antonio <pagonzalezmor1@gmail.com>',
