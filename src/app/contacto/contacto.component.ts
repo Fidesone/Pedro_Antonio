@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-contacto',
@@ -25,7 +26,10 @@ export class ContactoComponent {
     console.log('📨 Datos del formulario:', this.contacto);
     this.estadoEnvio = 'pendiente';
 
-    this.http.post('http://localhost:3000/contacto', this.contacto)
+    const url = `${environment.apiUrl}/contacto`;
+    console.log('🌐 URL usada para la petición:', url);
+    this.http.post(`${environment.apiUrl}/contacto`, this.contacto)
+    
       .subscribe({
         next: res => {
           console.log('✅ Mensaje enviado correctamente', res);
