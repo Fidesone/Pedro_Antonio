@@ -291,6 +291,41 @@ console.log("📦 Datos recibidos:", req.body);
   });
 });
 
+const { Resend } = require('resend');
+const resend = new Resend(process.env.RESEND_API_KEY);
+
+app.post("/contacto", async (req, res) => {
+  const { nombre, correo, asunto, mensaje } = req.body;
+
+  console.log("📨 Petición recibida en /contacto");
+  console.log("🧾 Datos recibidos:", req.body);
+
+  if (!nombre || !correo || !mensaje) {
+    return res.status(400).json({ success: false, message: "Faltan campos obligatorios" });
+  }
+
+  try {
+    const { data, error } = await resend.emails.send({
+      from: 'Contacto <onboarding@resend.dev>',
+      to: 'pagonzalezmor@hotmail.com',
+      reply_to: correo,
+      subject: `📬 Nuevo mensaje de contacto: ${asunto || 'Sin asunto'}`,
+      text: `Nombre: ${nombre}\nCorreo: ${correo}\n\nMensaje:\n${mensaje}`
+    });
+
+    if (error) {
+      console.error("❌ Error al enviar correo:", error);
+      return res.status(500).json({ success: false, message: "Error al enviar el mensaje" });
+    }
+
+    console.log("✅ Correo enviado correctamente:", data);
+    res.json({ success: true, message: "Mensaje enviado correctamente" });
+  } catch (err) {
+    console.error("❌ Error inesperado:", err);
+    res.status(500).json({ success: false, message: "Error interno al enviar el mensaje" });
+  }
+});
+
 
 
 // 🚀 Arrancar servidor
