@@ -307,7 +307,7 @@ app.post("/contacto", async (req, res) => {
   try {
     const { data, error } = await resend.emails.send({
       from: 'Contacto <onboarding@resend.dev>',
-      to: 'fidesplay@gmail.com',
+      to: 'pagonzalezmor1@gmail.com',
       reply_to: correo,
       subject: `📬 Nuevo mensaje de contacto: ${asunto || 'Sin asunto'}`,
       text: `Nombre: ${nombre}\nCorreo: ${correo}\n\nMensaje:\n${mensaje}`
