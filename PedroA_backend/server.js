@@ -307,9 +307,9 @@ app.post("/contacto", async (req, res) => {
   console.log("🔑 API Key usada:", process.env.RESEND_API_KEY);
   try {
     const { data, error } = await resend.emails.send({
-      from: 'Testing <testing@resend.dev>',
+      from: "Acme <onboarding@resend.dev>",
       to: 'pagonzalezmor1@gmail.com',
-      reply_to: correo,
+      replyto: correo,
       subject: `📬 Nuevo mensaje de contacto: ${asunto || 'Sin asunto'}`,
       text: `Nombre: ${nombre}\nCorreo: ${correo}\n\nMensaje:\n${mensaje}`
     });
