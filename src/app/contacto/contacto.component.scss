@@ -1,3 +1,66 @@
+.contenedor-cabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 28px;
+  margin-bottom: 30px;
+  background: linear-gradient(135deg, #cde3f9, #f0f7ff);
+  border-radius: 16px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06);
+  position: relative;
+  z-index: 1;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.contenedor-cabecera::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  width: 80%;
+  height: 4px;
+  border-radius: 4px;
+  background: linear-gradient(to right, #6fb1fc, #a698f3);
+  opacity: 0.9;
+}
+
+/* Logo */
+.logo-cabecera {
+  height: 100px;
+  max-width: 400px;
+  min-width: 120px;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+  margin: 0;
+}
+/* Botones de navegación */
+.enlace-navegacion {
+  font-size: 1em;
+  color: #2d7dd2;
+  background-color: transparent;
+  border: 2px solid #2d7dd2;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.enlace-navegacion:hover {
+  background-color: #2d7dd2;
+  color: white;
+}
+
+/* Mensaje de bienvenida */
+.mensaje-bienvenida {
+  text-align: center;
+  font-size: 1.1em;
+  margin-top: 10px;
+  color: #2c3e50;
+  font-weight: 500;
+}
 .tarjeta-contacto {
   display: flex;
   max-width: 900px;
@@ -100,4 +163,90 @@
     border-right: none;
     border-bottom: 1px solid #eee;
   }
+}
+.footer1 {
+  background: linear-gradient(135deg, #cde3f9, #f0f7ff);
+  padding: 20px 0;
+  text-align: center;
+  border-top: 3px solid #6fb1fc;
+  font-size: 1.6rem;
+}
+
+.footer1 a {
+  margin: 0 12px;
+  color: #2d7dd2;
+  transition: color 0.3s ease;
+}
+
+.footer1 a:hover {
+  color: #1b4f72;
+}
+
+/* Segunda parte del footer */
+.footer {
+  background-color: #f0f7ff;
+  padding: 20px 10px;
+  text-align: center;
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+  font-size: 0.95rem;
+  color: #2c3e50;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  border-top: 1px solid #d0e3f0;
+}
+
+.footer__link {
+  color: #2d7dd2;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.footer__link:hover {
+  color: #1b4f72;
+}
+
+.github {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  transition: color 0.3s ease;
+}
+
+.github:hover {
+  color: #000;
+}
+
+.contacto-container {
+  position: relative;
+  cursor: pointer;
+}
+
+.contacto-texto {
+  transition: color 0.3s ease;
+}
+
+.contacto-container:hover .contacto-texto {
+  color: #0078d4; /* Azul moderno */
+}
+
+.correo {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #f0f0f0;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: #333;
+  white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.correo {
+  display: none;
+}
+
+.contacto-container:hover .correo {
+  display: inline-block;
 }
