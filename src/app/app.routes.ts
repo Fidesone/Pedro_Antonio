@@ -9,6 +9,7 @@ import { NuevoArticuloComponent } from './nuevo-articulo/nuevo-articulo.componen
 import { NuevoLibroComponent } from './nuevo-libro/nuevo-libro.component';
 import { ModificarLibroComponent } from './modificar-libro/modificar-libro.component';
 import { ContactoComponent } from './contacto/contacto.component';
+import { EntrevistasComponent } from './entrevistas/entrevistas.component';
 
 export const routes: Routes = [
    { path: '', component: MainComponent },
@@ -20,6 +21,7 @@ export const routes: Routes = [
    { path: 'nuevo-articulo', component: NuevoArticuloComponent },
    { path: 'nuevo-libro', component: NuevoLibroComponent },
    { path: 'contacto', component: ContactoComponent },
+  { path: 'entrevistas', component: EntrevistasComponent },
    {
      path: 'modificar-libro',
      loadChildren: () =>

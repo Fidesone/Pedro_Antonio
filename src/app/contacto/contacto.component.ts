@@ -63,4 +63,7 @@ navigateToBooks() {
 navigateToBiography() {  
   this.router.navigate(['/biografia']);
 }
+navigateToInterviews() {  
+  this.router.navigate(['/entrevistas']);
+  }
 }

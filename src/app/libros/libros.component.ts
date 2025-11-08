@@ -69,6 +69,7 @@ constructor(
   navigatetoContacto(): void {
     this.router.navigate(['/contacto']);
   }
+  
     
 irAModificarLibro(id: number): void {
   this.router.navigate(['/modificar-libro'], { queryParams: { id } });
@@ -96,6 +97,8 @@ ordenarPorAno(): void {
     return this.ordenAscendente ? añoA - añoB : añoB - añoA;
   });
   this.ordenAscendente = !this.ordenAscendente;
+} 
+navigateToInterviews() {  
+this.router.navigate(['/entrevistas']);
 }
-
 }

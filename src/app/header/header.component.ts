@@ -37,6 +37,9 @@ export class HeaderComponent {
     navigateToBooks() {  
     this.router.navigate(['/libros']);
   }
+    navigateToInterviews() {  
+    this.router.navigate(['/entrevistas']);
+  }
     navigateToBiography() {  
     this.router.navigate(['/biografia']);
   }
