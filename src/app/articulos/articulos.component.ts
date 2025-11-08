@@ -30,6 +30,8 @@ mostrarFormulario = false;
   };
 
   name_user: string | null = null; // ✅ Declaración correcta
+  categoriaSeleccionada: string | undefined;
+  librosFiltrados: any;
 constructor(
   private http: HttpClient,
   private router: Router,
@@ -40,7 +42,13 @@ constructor(
   }
 }
 
-
+navigateToBookshand(categoria?: string): void {
+  if (categoria) {
+    this.router.navigate(['/libros'], { queryParams: { categoria } });
+  } else {
+    this.router.navigate(['/libros']);
+  }
+}
   ngOnInit(): void {
     this.http.get<any[]>(`${environment.apiUrl}/articulos`)
       .subscribe(data => {
@@ -73,4 +81,6 @@ irAWeb() {
 }
 
 
+
 }
+

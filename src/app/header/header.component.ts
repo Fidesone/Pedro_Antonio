@@ -13,6 +13,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HeaderComponent {
   name_user!: string | null;
+  categoriaSeleccionada: string | undefined;
+  librosFiltrados: any;
+  libros: any;
   constructor(
   private http: HttpClient,
   private router: Router,
@@ -52,7 +55,12 @@ export class HeaderComponent {
   toggleLogin() {
   this.mostrarLogin = !this.mostrarLogin;
 }
-  
+  filtrarLibros(categoria: string): void {
+    this.categoriaSeleccionada = categoria;
+    this.librosFiltrados = this.libros.filter(
+      (      libro: { categoria: string; }) => libro.categoria?.toLowerCase() === categoria.toLowerCase()
+    );
+  }
 irAWeb() {
   window.open('https://ejemplo.com', '_blank');
 }

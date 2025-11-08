@@ -1,38 +1,51 @@
 <div class="zona-articulos">
   <div class="contenedor-cabecera">
-  <img src="assets/img/Logo_oficial.png" alt="Pedro Antonio Logo" class="logo-cabecera" />
-    <div class = "accion-derecha">
-    <button class="enlace-navegacion" (click)="navigateToBooks()">Libros</button>
-    <button class="enlace-navegacion" (click)="navigateToBiography()">Biografia</button>
-    <button class="enlace-navegacion" (click)="navigateToInterviews()">Entrevistas</button>
-    <button class="enlace-navegacion" (click)="navigatetoContacto()">Contacto</button>
-    </div>
-  </div>
-
-  <!-- Botón que redirige a la nueva vista -->
-  <button class="boton-anadir" *ngIf="name_user === 'pedro'" (click)="irANuevoArticulo()">Añadir artículo</button>
- <!-- <button class="boton-anadir" *ngIf="name_user === 'pedro'" (click)="irAModificarArticulo()">Modificar articulo</button>-->
-
-  <div *ngIf="articulos.length > 0; else sinArticulos">
-<div *ngFor="let articulo of articulos" class="articulo-tarjeta">
-
-  <div class="info-articulo">
-    <h2>{{ articulo.titulo }}</h2>
-    <img [src]="articulo.imagen" alt="imagen artículo" class="imagen-articulo" />
-    <h4>{{ articulo.subtitulo }}</h4>
-    <p class="contenido-articulo">{{ articulo.resumen }}</p>
-    <a [href]="articulo.url" target="_blank">Seguir leyendo</a>
-    <button *ngIf="name_user === 'pedro'" class="boton-modificar" (click)="irAModificarArticulo(articulo.id)">
-      Modificar artículo
-    </button>
-
+    <img src="assets/img/Logo_oficial.png" alt="Pedro Antonio Logo" class="logo-cabecera" />
+    <div class="accion-derecha">
+      
+      <!-- Dropdown de Libros -->
+<div class="dropdown">
+  <button class="enlace-navegacion">Libros</button>
+  <div class="dropdown-content">
+    <button (click)="navigateToBookshand('poesía')">Poesía</button>
+    <button (click)="navigateToBookshand('novela')">Novela</button>
+    <button (click)="navigateToBookshand('ensayo')">Ensayo</button>
+    <button (click)="navigateToBookshand('viajes')">Viajes</button>
+    <button (click)="navigateToBookshand('memorias')">Memorias</button>
+    <button (click)="navigateToBookshand('otras publicaciones')">Otras publicaciones</button>
   </div>
 </div>
 
+
+      <!-- Botones normales -->
+      <button class="enlace-navegacion" (click)="navigateToBiography()">Biografía</button>
+      <button class="enlace-navegacion" (click)="navigateToInterviews()">Entrevistas</button>
+      <button class="enlace-navegacion" (click)="navigatetoContacto()">Contacto</button>
+    </div>
+  </div>
+
+  <!-- Botón añadir artículo -->
+  <button class="boton-anadir" *ngIf="name_user === 'pedro'" (click)="irANuevoArticulo()">Añadir artículo</button>
+
+  <!-- Listado de artículos -->
+  <div *ngIf="articulos.length > 0; else sinArticulos">
+    <div *ngFor="let articulo of articulos" class="articulo-tarjeta">
+      <div class="info-articulo">
+        <h2>{{ articulo.titulo }}</h2>
+        <img [src]="articulo.imagen" alt="imagen artículo" class="imagen-articulo" />
+        <h4>{{ articulo.subtitulo }}</h4>
+        <p class="contenido-articulo">{{ articulo.resumen }}</p>
+        <a [href]="articulo.url" target="_blank">Seguir leyendo</a>
+        <button *ngIf="name_user === 'pedro'" class="boton-modificar" (click)="irAModificarArticulo(articulo.id)">
+          Modificar artículo
+        </button>
+      </div>
+    </div>
   </div>
 
   <ng-template #sinArticulos>
     <p>Cargando artículos...</p>
   </ng-template>
 </div>
+
 <app-footer></app-footer>

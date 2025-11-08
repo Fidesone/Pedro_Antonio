@@ -25,4 +25,11 @@ navigateToBiography() {
   navigatetoContacto(){  
   this.router.navigate(['/contacto']);
   }
+    filtrarLibros(categoria: string): void {
+    this['categoriaSeleccionada'] = categoria;
+    this['librosFiltrados'] = this['libros'].filter(
+      (      libro: { categoria: string; }) => libro.categoria?.toLowerCase() === categoria.toLowerCase()
+    );
+  }
 }
+
