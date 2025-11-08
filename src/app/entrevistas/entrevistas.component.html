@@ -1,61 +1,60 @@
 <div class="zona-articulos">
   <div class="contenedor-cabecera">
-  <img src="assets/img/Logo_oficial.png" alt="Pedro Antonio Logo" class="logo-cabecera" />
-    <div class = "accion-derecha">
-    <button class="enlace-navegacion" (click)="navigateToBooks()">Libros</button>
-    <button class="enlace-navegacion" (click)="navigateToBiography()">Biografia</button>
-    <button class="enlace-navegacion" (click)="navigateToArticles()">Artículos</button>
-    <button class="enlace-navegacion" (click)="navigatetoContacto()">Contacto</button>
-    </div>
-</div>
+    <img src="assets/img/Logo_oficial.png" alt="Pedro Antonio Logo" class="logo-cabecera" />
+    <div class="accion-derecha">
 
-  <!-- Aquí ya NO va el segundo bloque de Libros -->
+      <!-- Dropdown de Libros -->
+      <div class="dropdown">
+        <button class="enlace-navegacion">Libros</button>
+        <div class="dropdown-content">
+          <button (click)="navigateToBookshand('poesía')">Poesía</button>
+          <button (click)="navigateToBookshand('novela')">Novela</button>
+          <button (click)="navigateToBookshand('ensayo')">Ensayo</button>
+          <button (click)="navigateToBookshand('viajes')">Viajes</button>
+          <button (click)="navigateToBookshand('memorias')">Memorias</button>
+          <button (click)="navigateToBookshand('otras publicaciones')">Otras publicaciones</button>
+        </div>
+      </div>
 
-
-<div class="entrevista-tarjeta">
-  <img src="../../assets/img/Entrevista1.jpg" alt="Imagen de la entrevista" class="imagen-entrevista" style="max-width:180px"/>
-  <div class="info-entrevista">
-    <h2>Pedro Antonio González Moreno: “Nunca pude terminar el ‘Ulises’ de Joyce”</h2>
-    <p class="resumen">
-      Aquí va una breve descripción o resumen de la entrevista.
-    </p>
-    <div class="separador-entrevista"></div>
-    <div class="detalles-entrevista">
-      <p><strong>Fecha:</strong> 28-septiembre-2017</p>
-      <p><strong>Medio:</strong> ElPaís</p>
-      <a href="https://elpais.com/cultura/2017/09/20/babelia/1505920900_488860.html" target="_blank"> 
-      Acceder a la entrevista
-      </a>
-
+      <!-- Botones normales -->
+      <button class="enlace-navegacion" (click)="navigateToBiography()">Biografía</button>
+      <button class="enlace-navegacion" (click)="navigateToArticles()">Artículos</button>
+      <button class="enlace-navegacion" (click)="navigatetoContacto()">Contacto</button>
     </div>
   </div>
 
-
-
-
-</div>
-
-
-
-
-<div class="entrevista-tarjeta">
-  <img src="../../assets/img/Entrevista1.jpg" alt="Imagen de la entrevista" class="imagen-entrevista" style="max-width:180px"/>
-  <div class="info-entrevista">
-    <h2>Pedro A. González, poeta en el Café Gijón</h2>
-    <p class="resumen">
-      Aquí va una breve descripción o resumen de la entrevista.
-    </p>
-    <div class="separador-entrevista"></div>
-    <div class="detalles-entrevista">
-      <p><strong>Fecha:</strong> 03-octubre-2017</p>
-      <p><strong>Medio:</strong> ABC</p>
-      <a href="https://www.abc.es/espana/castilla-la-mancha/toledo/centenario-quijote/abci-pedro-gonzalez-poeta-cafe-gijon-201710031333_noticia.html" target="_blank">
-      Acceder a la entrevista
-      </a>
-
+  <!-- Tarjetas de entrevistas -->
+  <div class="entrevista-tarjeta">
+    <img src="../../assets/img/Entrevista1.jpg" alt="Imagen de la entrevista" class="imagen-entrevista" style="max-width:180px"/>
+    <div class="info-entrevista">
+      <h2>Pedro Antonio González Moreno: “Nunca pude terminar el ‘Ulises’ de Joyce”</h2>
+      <p class="resumen">
+        Aquí va una breve descripción o resumen de la entrevista.
+      </p>
+      <div class="separador-entrevista"></div>
+      <div class="detalles-entrevista">
+        <p><strong>Fecha:</strong> 28-septiembre-2017</p>
+        <p><strong>Medio:</strong> ElPaís</p>
+        <a href="https://elpais.com/cultura/2017/09/20/babelia/1505920900_488860.html" target="_blank">Acceder a la entrevista</a>
+      </div>
     </div>
   </div>
+
+  <div class="entrevista-tarjeta">
+    <img src="../../assets/img/Entrevista1.jpg" alt="Imagen de la entrevista" class="imagen-entrevista" style="max-width:180px"/>
+    <div class="info-entrevista">
+      <h2>Pedro A. González, poeta en el Café Gijón</h2>
+      <p class="resumen">
+        Aquí va una breve descripción o resumen de la entrevista.
+      </p>
+      <div class="separador-entrevista"></div>
+      <div class="detalles-entrevista">
+        <p><strong>Fecha:</strong> 03-octubre-2017</p>
+        <p><strong>Medio:</strong> ABC</p>
+        <a href="https://www.abc.es/espana/castilla-la-mancha/toledo/centenario-quijote/abci-pedro-gonzalez-poeta-cafe-gijon-201710031333_noticia.html" target="_blank">Acceder a la entrevista</a>
+      </div>
+    </div>
+  </div>
+
+  <app-footer></app-footer>
 </div>
-
-
-<app-footer></app-footer>

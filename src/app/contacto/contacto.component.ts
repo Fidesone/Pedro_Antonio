@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   selector: 'app-contacto',
   imports: [FormsModule, FooterComponent],
   templateUrl: './contacto.component.html',
-  styleUrl: './contacto.component.scss',
+  styleUrls: ['./contacto.component.scss'], // ✅ corregido
   standalone: true
 })
 export class ContactoComponent {
@@ -22,26 +22,20 @@ export class ContactoComponent {
 
   estadoEnvio: 'exito' | 'error' | 'pendiente' | null = null;
 
-  // 🔹 Se elimina: router: any;
+  constructor(private http: HttpClient, private router: Router) {}
 
-  constructor(private http: HttpClient, private router: Router) {} // ✅ inyectamos Router
+  enviarFormulario() {
+    console.log('📨 Datos del formulario:', this.contacto);
+    this.estadoEnvio = 'pendiente';
 
-enviarFormulario() {
-  console.log('📨 Datos del formulario:', this.contacto);
-  this.estadoEnvio = 'pendiente';
-
-  const url = `${environment.apiUrl}/contacto`;
-  this.http.post(url, this.contacto)
-    .subscribe({
+    const url = `${environment.apiUrl}/contacto`;
+    this.http.post(url, this.contacto).subscribe({
       next: res => {
         console.log('✅ Mensaje enviado correctamente', res);
         this.estadoEnvio = 'exito';
         this.contacto = { nombre: '', correo: '', asunto: '', mensaje: '' };
 
-        // Mostrar mensaje de éxito
         alert('✅ El correo se ha enviado correctamente');
-
-        // Redirigir a /biografia después de enviar
         this.router.navigate(['/biografia']);
       },
       error: err => {
@@ -50,20 +44,30 @@ enviarFormulario() {
         alert('❌ Error al enviar el correo');
       }
     });
-}
+  }
 
+  // 🔹 Métodos de navegación
+  navigateToBookshand(categoria?: string): void {
+    if (categoria) {
+      this.router.navigate(['/libros'], { queryParams: { categoria } });
+    } else {
+      this.router.navigate(['/libros']);
+    }
+  }
 
+  navigateToArticles() {
+    this.router.navigate(['/articulos']);
+  }
 
-navigateToArticles() {  
-  this.router.navigate(['/articulos']);
-}
-navigateToBooks() {  
-  this.router.navigate(['/libros']);
-}
-navigateToBiography() {  
-  this.router.navigate(['/biografia']);
-}
-navigateToInterviews() {  
-  this.router.navigate(['/entrevistas']);
+  navigateToBooks() {
+    this.router.navigate(['/libros']);
+  }
+
+  navigateToBiography() {
+    this.router.navigate(['/biografia']);
+  }
+
+  navigateToInterviews() {
+    this.router.navigate(['/entrevistas']);
   }
 }

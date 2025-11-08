@@ -4,16 +4,15 @@
   <div class="accion-derecha">
     <button class="enlace-navegacion" (click)="navigateToArticles()">Artículos</button>
 
-    <!-- Dropdown de Libros integrado -->
     <div class="dropdown">
       <button class="enlace-navegacion">Libros</button>
       <div class="dropdown-content">
-        <button (click)="filtrarLibros('poesía')">Poesía</button>
-        <button (click)="filtrarLibros('novela')">Novela</button>
-        <button (click)="filtrarLibros('ensayo')">Ensayo</button>
-        <button (click)="filtrarLibros('viajes')">Viajes</button>
-        <button (click)="filtrarLibros('memorias')">Memorias</button>
-        <button (click)="filtrarLibros('otras publicaciones')">Otras publicaciones</button>
+        <button (click)="navigateToBookshand('poesía')">Poesía</button>
+        <button (click)="navigateToBookshand('novela')">Novela</button>
+        <button (click)="navigateToBookshand('ensayo')">Ensayo</button>
+        <button (click)="navigateToBookshand('viajes')">Viajes</button>
+        <button (click)="navigateToBookshand('memorias')">Memorias</button>
+        <button (click)="navigateToBookshand('otras publicaciones')">Otras publicaciones</button>
       </div>
     </div>
 

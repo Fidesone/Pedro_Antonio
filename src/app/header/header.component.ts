@@ -25,7 +25,13 @@ export class HeaderComponent {
     this.name_user = localStorage.getItem('name_user');
   }
 }
-
+navigateToBookshand(categoria?: string): void {
+  if (categoria) {
+    this.router.navigate(['/libros'], { queryParams: { categoria } });
+  } else {
+    this.router.navigate(['/libros']);
+  }
+}
   navigateToLogin(): void {
     console.log('✅ Botón clicado, navegando a /login');
     this.router.navigate(['/login']);

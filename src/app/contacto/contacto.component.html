@@ -1,14 +1,27 @@
-
 <header class="contenedor-cabecera">
-<img src="assets/img/Logo_oficial.png" alt="Pedro Antonio Logo" class="logo-cabecera" />
+  <img src="assets/img/Logo_oficial.png" alt="Pedro Antonio Logo" class="logo-cabecera" />
 
   <div class="accion-derecha">
     <button class="enlace-navegacion" (click)="navigateToArticles()">Artículos</button>
-    <button class="enlace-navegacion" (click)="navigateToBooks()">Libros</button>
+
+    <!-- Dropdown de Libros -->
+    <div class="dropdown">
+      <button class="enlace-navegacion">Libros</button>
+      <div class="dropdown-content">
+        <button (click)="navigateToBookshand('poesía')">Poesía</button>
+        <button (click)="navigateToBookshand('novela')">Novela</button>
+        <button (click)="navigateToBookshand('ensayo')">Ensayo</button>
+        <button (click)="navigateToBookshand('viajes')">Viajes</button>
+        <button (click)="navigateToBookshand('memorias')">Memorias</button>
+        <button (click)="navigateToBookshand('otras publicaciones')">Otras publicaciones</button>
+      </div>
+    </div>
+
     <button class="enlace-navegacion" (click)="navigateToBiography()">Biografía</button>
     <button class="enlace-navegacion" (click)="navigateToInterviews()">Entrevistas</button>
   </div>
 </header>
+
 <section class="tarjeta-contacto">
   <div class="col izquierda">
     <h2>Contáctame</h2>
@@ -34,4 +47,5 @@
     </form>
   </div>
 </section>
+
 <app-footer></app-footer>
