@@ -4,6 +4,8 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
 import { FooterComponent } from '../footer/footer.component';
+import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-libros',
@@ -21,6 +23,7 @@ export class LibrosComponent implements OnInit {
 constructor(
   private http: HttpClient,
   private router: Router,
+  private route: ActivatedRoute,   // 👈 añadido
   @Inject(PLATFORM_ID) private platformId: Object
 ) {
   if (isPlatformBrowser(this.platformId)) {
@@ -28,18 +31,27 @@ constructor(
   }
 }
 
-  ngOnInit(): void {
-    this.http.get<any[]>(`${environment.apiUrl}/libros`).subscribe(
-      (data) => {
-        console.log('📚 Libros recibidos:', data);
-        this.libros = data;
-        this.librosFiltrados = data;
-      },
-      (error) => {
-        console.error('❌ Error al obtener libros:', error);
-      }
-    );
-  }
+ngOnInit(): void {
+  this.http.get<any[]>(`${environment.apiUrl}/libros`).subscribe(
+    (data) => {
+      console.log('📚 Libros recibidos:', data);
+      this.libros = data;
+      this.librosFiltrados = data;
+
+      // 👇 Aquí lees la categoría de la URL
+      this.route.queryParams.subscribe(params => {
+        const categoria = params['categoria'];
+        if (categoria) {
+          this.filtrarLibros(categoria);
+        }
+      });
+    },
+    (error) => {
+      console.error('❌ Error al obtener libros:', error);
+    }
+  );
+}
+
 
   filtrarLibros(categoria: string): void {
     this.categoriaSeleccionada = categoria;
